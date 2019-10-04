@@ -21,14 +21,30 @@
 
     <title>CoreUI</title>
   </head>
-  <body class="app">
-    <h1>Hello, world!</h1>
-
-    <!-- Optional JavaScript -->
-    <!-- Popper.js first, then CoreUI JS -->
+  
+  <body class="c-app">
+      
+    <div class="c-sidebar">
+      <!-- Sidebar content here -->
+    </div>
+    <div class="c-wrapper">
+      <header class="c-header">
+        <!-- Header content here -->
+      </header>
+      <div class="c-body">
+        <main class="c-main">
+            <router-outlet></router-outlet>
+          
+        </main>
+      </div>
+      <footer class="c-footer">
+        <!-- Footer content here -->
+      </footer>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js" integrity="sha384-L2pyEeut/H3mtgCBaUNw7KWzp5n9&#43;4pDQiExs933/5QfaTh8YStYFFkOzSoXjlTb" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/@coreui/coreui@3.0.0-alpha.13/dist/js/coreui.min.js"></script>
   </body>
+
+
 </html>
 
-<router-outlet></router-outlet>
