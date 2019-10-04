@@ -2,18 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routing, appRoutingProviders} from './components/app.routing';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { RouterModule } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
+import { RouterModule, Routes } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    LoginComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,5 +25,4 @@ import { LoginComponent } from './components/login/login.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export class UiModule { }
 
