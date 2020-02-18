@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules
+/CRG_PROYECT/FRONTEND/web_crg/node_modules
 
 # profiling files
 chrome-profiler-events*.json
