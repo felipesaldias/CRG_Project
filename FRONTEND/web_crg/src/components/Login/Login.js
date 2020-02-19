@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react';
 import './Login.css';
+import axios from 'axios';
 
 class Login extends Component {
    constructor(props){
@@ -28,12 +29,16 @@ class Login extends Component {
     }
 
     const submit = e =>{
+
       e.preventDefault(); 
+        axios.get('https://pokeapi.co/api/v2/pokemon/ditto/').then(result =>{console.log(result.data.id)}).catch(console.log);
 
       if (this.state.rut.trim() ===''||this.state.password.trim() ===''){
         console.log("vacia la wa");
         return;
       }
+
+
       console.log(this.state)
     }
 
