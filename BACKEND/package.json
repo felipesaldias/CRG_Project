@@ -1,23 +1,15 @@
 {
-  "name": "api-rest-crg",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "Api rest de CRG ",
+  "description": "backend to serve crg-app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "CRG TEAM",
-  "license": "MIT",
+  "author": "crg_team",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "connect-multiparty": "^2.2.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mongoose": "^5.7.3",
-    "pouchdb": "^7.1.1"
-  },
-  "devDependencies": {
-    "nodemon": "^1.19.3"
+    "express": "^4.17.1"
   }
 }
