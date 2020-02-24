@@ -2,10 +2,12 @@ var express = require('express')
 var http = require('http')
 var app = express()
 
+var ssp=process.env.SUPER_SECRET_PASSWORD
+
 app.get('/', (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.status(200).send("Welcome to API REST")
+  res.status(200).send(ssp)
 })
 
 http.createServer(app).listen(8001, () => {
