@@ -4,7 +4,20 @@
 
 .Login {
     /* propertys here */
+  
+   
 }
-ocupa_mitad {
+.form {
+    margin-top: 5%;
+    width: 70%;
+    margin-left: 30%;
+    
+}
+.ocupa_mitad {
     width: 50%;
+    margin-left: 2.5%;
+       
+    
+    
+    /*display: inline-block; */
   }
