@@ -34,7 +34,7 @@ class Login extends Component {
       e.preventDefault(); 
         //axios.get('https://pokeapi.co/api/v2/pokemon/ditto/').then(result =>{console.log(result.data.id)}).catch(console.log);
         //axios.get('http://localhost:8001').then(result =>{console.log(result.data)}).catch(console.log);
-        axios.get('http://localhost:8001').then(result =>{this.setState({rut:result.data})});
+        axios.get('http://localhost:8001').then(result =>{this.setState({rut: result.data.mensaje})})//this.setState({rut:result.data})});
 
       if (this.state.rut.trim() ===''||this.state.password.trim() ===''){
         console.log("vacia la wa");
@@ -47,11 +47,11 @@ class Login extends Component {
 
     return (
       <div>
-        <form>
+        <form className= "form">
           <input
           type="text"
           name="rut"
-          className="u-full-width"
+          className="ocupa_mitad"
           placeholder="Ingrese rut"
           onChange={handleState}
           value={rut}
@@ -60,7 +60,7 @@ class Login extends Component {
           <input
           type="password"
           name="password"
-          className="u-full-width"
+          className="ocupa_mitad"//"u-full-width"
           placeholder="Ingrese password"
           onChange={handleState}
           value={password}

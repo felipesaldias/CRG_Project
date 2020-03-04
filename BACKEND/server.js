@@ -1,24 +1,25 @@
-var express = require('express')
-var http = require('http')
-var app = express()
+const express = require('express');
+const bodyParser = require('body-parser');
+let jwt = require('jsonwebtoken');
+let config = require('./config');
+let middleware = require('./middleware');
 
-app.get('/:id', (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  //res.status(200).send("Welcome to API REST")
-  console.log(req.params)
-  console.log(req.query)
-  var junto2= {"params": req.params, "query": req.query}
-  res.status(200).send(junto2)
-  
-})
 
-app.get('/dani', (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.status(200).send("hola soy la dani")
-})
+var HandlerGenerator = require('./handlers')
 
-http.createServer(app).listen(8001, () => {
-  console.log('Server started at http://localhost:8001');
-});
+// Starting point of the server
+function main () {
+  let app = express(); // Export app for other routes to use
+  let handlers = new HandlerGenerator();
+  const port = process.env.PORT || 8000;
+  app.use(bodyParser.urlencoded({ // Middleware
+    extended: true
+  }));
+  app.use(bodyParser.json());
+  // Routes & Handlers
+  app.post('/login', handlers.login);
+  app.get('/', middleware.checkToken, handlers.index);
+  app.listen(port, () => console.log(`Server is listening on port: ${port}`));
+}
+
+main();
