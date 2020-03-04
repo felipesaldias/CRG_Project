@@ -4,6 +4,7 @@ let jwt = require('jsonwebtoken');
 let config = require('./config');
 let middleware = require('./middleware');
 
+
 var HandlerGenerator = require('./handlers')
 
 // Starting point of the server
