@@ -1,5 +1,6 @@
 let jwt = require('jsonwebtoken');
-let config = require('./config');
+let config = require('../config');
+
 module.exports = class HandlerGenerator {
 
     constructor() {
@@ -12,7 +13,7 @@ module.exports = class HandlerGenerator {
       // For the given username fetch user from DB
       let mockedUsername = 'admin';
       let mockedPassword = 'password';
-      let usertype= "administrador"
+      let usertype= "administrador";
   
       if (username && password) {
         if (username === mockedUsername && password === mockedPassword) {
@@ -47,5 +48,6 @@ module.exports = class HandlerGenerator {
         tokendecoded: req.decoded
       });
     }
+
   }
   
