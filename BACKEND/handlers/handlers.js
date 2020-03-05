@@ -1,6 +1,5 @@
 let jwt = require('jsonwebtoken');
-let config = require('./config');
-let User = require('./models/user');
+let config = require('../config');
 
 module.exports = class HandlerGenerator {
 
@@ -49,22 +48,6 @@ module.exports = class HandlerGenerator {
         tokendecoded: req.decoded
       });
     }
-    saveUser(req,res){
-      var user = new User();
-      var params = req.body;
-      user.name = params.name; 
-      user.pass = params.pass; 
-      user.email = params.email; 
-      user.phone = params.phone; 
-      user.type = params.type; 
-      user.active = params.active; 
-      user.save();
-      console.log(user);
-      res.json({
-        success: true,
-        message: user,
-        tokendecoded: "hola"
-      }); 
-    }
+
   }
   

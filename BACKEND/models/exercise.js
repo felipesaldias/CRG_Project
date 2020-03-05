@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 
 var ExerciseSchema = Schema({
     //Invetigar division/subcategoria de los ejercicios
+    img: String,
     name: String,
     body_region: String,
     body_group: String,
@@ -12,4 +13,4 @@ var ExerciseSchema = Schema({
 
 });
 
-module.exports = mongoose.model('User',UserSchema);
+module.exports = mongoose.model('exercise',ExerciseSchema);
