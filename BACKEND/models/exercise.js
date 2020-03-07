@@ -8,8 +8,7 @@ var ExerciseSchema = Schema({
     img: String,
     name: String,
     body_region: String,
-    body_group: String,
-    body_part: String
+    body_group: String
 
 });
 

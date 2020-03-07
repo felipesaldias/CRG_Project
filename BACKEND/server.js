@@ -5,6 +5,7 @@ let middleware = require('./middleware');
 var mongoose = require('mongoose');
 var HandlerGenerator = require('./handlers/handlers');
 var HandlerUser = require('./handlers/handlerUser');
+var cors = require('cors');
 
 let app = express();
 
@@ -27,17 +28,18 @@ function main () {
     extended: true
   }));
   app.use(bodyParser.json());
+  app.use(cors());
   // Routes & Handlers
   app.post('/login', handlers.login);
   app.post('/users', handlerUser.create);
-  app.get('/users/', handlerUser.index);
-  app.get('/users/:id', handlerUser.show);
-  app.post('/exercises', handlerExercise.create);
-  app.get('/exercises', handlerExercise.index);
-  app.get('/exercises/:id', handlerExercise.show);
-  app.post('/routine', handlerRoutine.create);
-  app.get('/:user/routine', handlerRoutine.index);
-  app.get('/routine/:id', handlerRoutine.show);
+  //app.get('/users', handlerUser.index);
+  //app.get('/users/:id', handlerUser.show);
+  //app.post('/exercises', handlerExercise.create);
+  //app.get('/exercises', handlerExercise.index);
+  //app.get('/exercises/:id', handlerExercise.show);
+  //app.post('/routine', handlerRoutine.create);
+  //app.get('/:user/routine', handlerRoutine.index);
+  //app.get('/routine/:id', handlerRoutine.show);
   //app.post('/exercises', handlerExcercise.create);
   app.get('/', middleware.checkToken, handlers.index);
   app.listen(port, () => console.log(`Server is listening on port: ${port}`));
