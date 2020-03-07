@@ -74,8 +74,8 @@ class AddTrainer extends Component {
                 <h2>titulo</h2>
         
             </div>
-  </div>
-</div>
+          </div>
+        </div>
       </div>
     );
   }
