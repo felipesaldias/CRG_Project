@@ -6,7 +6,7 @@ class CreateAccount extends Component {
 
   constructor(props){
     super(props);
-    this.state = {name:'', rut:'', pass: '', email: '', phone: '', type: ''};
+    this.state = {name:'', rut:'', pass: '', email: '', phone: '', type: 'cliente'};
    }
 
 
@@ -31,12 +31,9 @@ class CreateAccount extends Component {
       e.preventDefault(); 
         //axios.get('https://pokeapi.co/api/v2/pokemon/ditto/').then(result =>{console.log(result.data.id)}).catch(console.log);
         //axios.get('http://localhost:8001').then(result =>{console.log(result.data)}).catch(console.log);
-        axios.get('http://localhost:8001').then(result =>{this.setState({rut: result.data.mensaje})})//this.setState({rut:result.data})});
+        axios.post('http://localhost:8001/users',this.state).then(result =>{console.log(result)})//this.setState({rut:result.data})});
 
-      if (this.state.rut.trim() ===''||this.state.password.trim() ===''){
-        console.log("vacia la wa");
-        return;
-      }
+      
 
 
       console.log(this.state)
@@ -98,15 +95,17 @@ class CreateAccount extends Component {
                   />
 
                   <label>Tipo de cuenta</label>
-                  <select name="combo"
+                  <select
                       className="u-full-width"
                       name="type"
                       onChange={handleState}
                       value={type}
+                
+                
                   >
+                    <option value="cliente">Cliente</option>
                     <option value="entrenador">Entrenador</option>
                     <option value="nutricionista">Nutricionista</option>
-                    <option value="cliente">Cliente</option>
                   </select>
 
                   <button
