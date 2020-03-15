@@ -1,12 +1,17 @@
 import React, { useState, useContext } from '../../../node_modules/react';
 import './Login.css';
 import AuthContext from '../../context/auth/authContext';
+import { useEffect } from 'react';
+import {Link} from 'react-router-dom';
+import tokenAuth from '../../config/token';
 
 
 const Login = (props) =>  {
+
    
     const authContext = useContext(AuthContext);
-    const {logIn} = authContext;
+    const {authenticated,logIn,authenticatedUser} = authContext;
+
     const [user, handleUser] = useState({
       rut: '',
       password: ''
@@ -27,10 +32,20 @@ const Login = (props) =>  {
         return;
       }
       console.log(JSON.stringify(user));
-      logIn(user); // Call logIn function in state context
+      logIn(user); // Call logIn function in state context  
     }
+    if(localStorage.getItem('token')){
+      authenticatedUser();
+    }
+    useEffect(()=>{
+     
+      if(authenticated){
+        props.history.push('/crgpanel');
 
+      }
+    })
     return (
+      
       <div>
         <form className= "form">
           <input

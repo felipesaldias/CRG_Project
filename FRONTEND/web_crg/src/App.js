@@ -5,11 +5,14 @@ import './App.css';
 import Login from './pages/Login';
 import AuthState from './context/auth/authState';
 import tokenAuth from './config/token';
+import CrgPanel from './pages/CrgPanel';
 
 //revisa si el usuario ya esta logeado
+//<Redirect from="/" to="/login" />
 const token = localStorage.getItem('token');
 if(token){
   tokenAuth(token);
+  
 }
 function App() {
   return (
@@ -17,8 +20,9 @@ function App() {
     <BrowserRouter>
       <AuthState>
         <div className="body" >
-          <Redirect from="/" to="/login" />
           <Route exact path ="/login" component={Login} />
+          <Route exact path ="/crgpanel" component={CrgPanel} />
+          
         </div>   
       </AuthState>
     </BrowserRouter>
