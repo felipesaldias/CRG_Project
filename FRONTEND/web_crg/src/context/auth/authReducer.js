@@ -14,5 +14,12 @@ export default (state,action) => {
                 message: null,
                 loading: false 
             }
+            case GET_USER:
+                return {
+                    ...state,
+                    authenticated: true,
+                    user: action.payload,
+                    loading: false 
+                }
     }
 }

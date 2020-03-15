@@ -31,6 +31,7 @@ function main () {
   app.use(cors());
   // Routes & Handlers
   app.post('/login', handlers.login);
+  app.get('/login',middleware.checkToken,handlerUser.index);
   app.post('/users', handlerUser.create);
   //app.get('/users', handlerUser.index);
   //app.get('/users/:id', handlerUser.show);

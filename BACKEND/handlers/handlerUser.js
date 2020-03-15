@@ -27,5 +27,20 @@ module.exports = class HandlerUser {
         msg: "Tu usuario se agrego a la DB"
       }); 
     }
+    index(req,res){
+      //traer de mongo el usuario que corresponde al rut que viene en el token
+      var tokendec = req.decoded
+      console.log(req.decoded);
+      const type= tokendec.type;
+      const rut= tokendec.rut;
+      console.log("el usuario "+rut+" de tipo: "+type+"quiere saber sus datos");
+      res.json({
+        user: {
+          rut: rut,
+          type: type
+        } ,
+        msg: " "
+      }); 
+    }
   }
   

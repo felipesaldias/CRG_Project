@@ -4,7 +4,7 @@
   "description": "backend to serve crg-app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "source .env && nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "crg_team",

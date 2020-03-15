@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from '../../../node_modules/react';
 import './Login.css';
 import AuthContext from '../../context/auth/authContext';
 
@@ -7,8 +7,6 @@ const Login = (props) =>  {
    
     const authContext = useContext(AuthContext);
     const {logIn} = authContext;
-    
-
     const [user, handleUser] = useState({
       rut: '',
       password: ''
@@ -23,22 +21,13 @@ const Login = (props) =>  {
     }
 
     const submit = e =>{
-
-      e.preventDefault(); 
-        //axios.get('https://pokeapi.co/api/v2/pokemon/ditto/').then(result =>{console.log(result.data.id)}).catch(console.log);
-        //axios.get('http://localhost:8001').then(result =>{console.log(result.data)}).catch(console.log);
-        //axios.get('http://localhost:8001').then(result =>{this.setState({rut: result.data.mensaje})})//this.setState({rut:result.data})});
-
-
+      e.preventDefault();  
       if (rut.trim() ===''||password.trim() ===''){
-        console.log("vacia la wa");
-        //mandar alerta del alertContext
-        //showAlert('Todos los campos son obligatorios', 'alerta-error');
+        console.log("vacios los campos");
         return;
       }
-      console.log(user)
-      
-      logIn(user);
+      console.log(JSON.stringify(user));
+      logIn(user); // Call logIn function in state context
     }
 
     return (
@@ -67,8 +56,7 @@ const Login = (props) =>  {
             className="ocupa_mitad button-primary"
             onClick={submit}
             >
-              
-              Login
+            Login
           </button>
         </form>
       </div>
