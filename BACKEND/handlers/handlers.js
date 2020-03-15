@@ -8,16 +8,16 @@ module.exports = class HandlerGenerator {
     }
     login (req, res) {
       console.log("paso")
-      let username = req.body.username;
+      let rut = req.body.rut;
       let password = req.body.password;
       // For the given username fetch user from DB
       let mockedUsername = 'admin';
       let mockedPassword = 'password';
       let usertype= "administrador";
   
-      if (username && password) {
-        if (username === mockedUsername && password === mockedPassword) {
-          let token = jwt.sign({username: username, type: usertype},
+      if (rut && password) {
+        if (rut === mockedUsername && password === mockedPassword) {
+          let token = jwt.sign({username: rut, type: usertype},
             config.secret,
             { expiresIn: '24h' // expires in 24 hours
             }
@@ -29,13 +29,13 @@ module.exports = class HandlerGenerator {
             token: token
           });
         } else {
-          res.send(403).json({
+          res.status(403).send({
             success: false,
             message: 'Incorrect username or password'
           });
         }
       } else {
-        res.send(400).json({
+        res.status(400).send({
           success: false,
           message: 'Authentication failed! Please check the request'
         });
