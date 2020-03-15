@@ -29,6 +29,7 @@ const AuthState = props =>{
         try {
             console.log("antes del get");
             const response = await clientAxios.get('/login');
+            //matchear si es token veencido para eliminar el token del local storage
             console.log(response);
             console.log("despues del get")
             dispatch({
