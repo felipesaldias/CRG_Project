@@ -17,7 +17,7 @@ module.exports = class HandlerGenerator {
   
       if (rut && password) {
         if (rut === mockedUsername && password === mockedPassword) {
-          let token = jwt.sign({username: rut, type: usertype},
+          let token = jwt.sign({rut: rut, type: usertype},
             config.secret,
             { expiresIn: '24h' // expires in 24 hours
             }
@@ -41,6 +41,7 @@ module.exports = class HandlerGenerator {
         });
       }
     }
+
     index (req, res) {
       res.json({
         success: true,

@@ -1,4 +1,4 @@
 module.exports = {
-    secret: process.env.SUPER_SECRET_PASSWORD,
+    secret: process.env.SUPER_SECRET_PASSWORD || 'defaultPass',
     port: process.env.PORT
   };
