@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import AuthState from './context/auth/authState';
 import tokenAuth from './config/token';
 import CrgPanel from './pages/CrgPanel';
+import Home from './pages/Home/Home';
 
 //revisa si el usuario ya esta logeado
 //<Redirect from="/" to="/login" />
@@ -20,9 +21,10 @@ function App() {
     <BrowserRouter>
       <AuthState>
         <div className="body" >
+          <Route exact path ="/" component={Home}/>
           <Route exact path ="/login" component={Login} />
           <Route exact path ="/crgpanel" component={CrgPanel} />
-          
+          <Route exact path ="/home" component={Home}/>
         </div>   
       </AuthState>
     </BrowserRouter>
