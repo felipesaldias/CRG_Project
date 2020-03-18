@@ -49,12 +49,20 @@ module.exports = class HandlerGenerator {
 
     }
 
-    index (req, res) {
+    index(req,res){
+      //traer de mongo el usuario que corresponde al rut que viene en el token
+      var tokendec = req.decoded
+      console.log(req.decoded);
+      const type= tokendec.type;
+      const rut= tokendec.rut;
+      console.log("el usuario "+rut+" de tipo: "+type+"quiere saber sus datos");
       res.json({
-        success: true,
-        message: 'Index page',
-        tokendecoded: req.decoded
-      });
+        user: {
+          rut: rut,
+          type: type
+        } ,
+        msg: " "
+      }); 
     }
 
   }

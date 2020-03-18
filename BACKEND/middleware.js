@@ -29,7 +29,18 @@ let checkToken = (req, res, next) => {
     });
   }
 };
-
+let checkStaff = (req, res, next) => {
+  if (req.decoded.type == "admin" || "entrenador" || "nutricionista" ){
+    next();
+  }
+  else{
+    return res.status(400).send({
+      success: false,
+      message: 'you are not staff member'
+    });
+  }
+}
 module.exports = {
-  checkToken: checkToken
+  checkToken: checkToken,
+  checkStaff: checkStaff
 }

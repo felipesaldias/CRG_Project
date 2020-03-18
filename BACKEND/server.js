@@ -37,10 +37,10 @@ function main () {
   app.use(cors());
 
   // Routes & Handlers
-  app.post('/login', handlers.login);
-  app.get('/login',middleware.checkToken,handlerUser.index);
+  app.post('/login', handlers.login);//cambiar nombre de handlers a hanlderAuth
+  app.get('/login',middleware.checkToken,handlers.index);
   app.post('/users', handlerUser.create);
-  //app.get('/users', handlerUser.index);
+  app.get('/users',middleware.checkToken,middleware.checkStaff,handlerUser.index);
   //app.get('/users/:id', handlerUser.show);
   //app.post('/exercises', handlerExercise.create);
   //app.get('/exercises', handlerExercise.index);
