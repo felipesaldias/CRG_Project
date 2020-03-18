@@ -17,17 +17,40 @@ module.exports = class HandlerUser {
       user.type = params.type; 
       //user.active = params.active; 
       user.createdAt= new Date();
-      user.save();
-      console.log(user);
+      
+      user.save((err,data) => {
+        console.log(typeof(err.code))//.slice(0, 18))
+        if(data){
+          console.log(user);
+          res.header("Access-Control-Allow-Origin", "*");
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+          res.json({
+            success: true,
+            message: user,  
+            msg: "Tu usuario se agrego a la DB"
+          }); 
 
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-      res.json({
-        success: true,
-        message: user,  
-        msg: "Tu usuario se agrego a la DB"
-      }); 
-    }
+        }
+        else {
+          switch (err.code){
+            case 11000:
+                res.json({
+                  msg: "El rut ya esta registrado en la db"
+                }); 
+
+            break;
+             default:
+                res.json({
+                  msg: "Tu usuario NO agrego a la DB",
+                  error: err
+                }); 
+           }
+          
+          
+        }
+        
+      });
+      }
     index(req,res){
       //traer de mongo el usuario que corresponde al rut que viene en el token
       var tokendec = req.decoded
