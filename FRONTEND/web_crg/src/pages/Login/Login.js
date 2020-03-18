@@ -40,7 +40,7 @@ const Login = (props) =>  {
     useEffect(()=>{
      
       if(authenticated){
-        props.history.push('/crgpanel');
+        props.history.push('/crg/panel');
 
       }
     })

@@ -6,12 +6,13 @@ var mongoose = require('mongoose');
 var HandlerGenerator = require('./handlers/handlers');
 var HandlerUser = require('./handlers/handlerUser');
 var cors = require('cors');
+let User = require('./models/user');
 
 let app = express();
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/crg',{useNewUrlParser: true, useUnifiedTopology: true})
+db = mongoose.connect('mongodb://localhost:27017/crg',{useNewUrlParser: true, useUnifiedTopology: true})
         .then(()=>{
             console.log("conexión realizada");
         })
@@ -19,16 +20,22 @@ mongoose.connect('mongodb://localhost:27017/crg',{useNewUrlParser: true, useUnif
 
 
 // Starting point of the server
+
+
 function main () {
+  console.log(User.findById({id: "5e71671ff16c8d6542693e49"}))
+  
    // Export app for other routes to use
   let handlers = new HandlerGenerator();
   let handlerUser = new HandlerUser();
   const port = config.port || 8000;
+
   app.use(bodyParser.urlencoded({ // Middleware
     extended: true
   }));
   app.use(bodyParser.json());
   app.use(cors());
+
   // Routes & Handlers
   app.post('/login', handlers.login);
   app.get('/login',middleware.checkToken,handlerUser.index);

@@ -10,6 +10,7 @@ module.exports = class HandlerUser {
       var user = new User();
       var params = req.body;
       user.name = params.name; 
+      user.rut = params.rut;
       user.pass = params.pass; 
       user.email = params.email; 
       user.phone = params.phone; 
