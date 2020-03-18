@@ -19,11 +19,11 @@ module.exports = class HandlerUser {
       user.createdAt= new Date();
       
       user.save((err,data) => {
-        console.log(typeof(err.code))//.slice(0, 18))
+
         if(data){
-          console.log(user);
           res.header("Access-Control-Allow-Origin", "*");
           res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+          console.log(user);
           res.json({
             success: true,
             message: user,  

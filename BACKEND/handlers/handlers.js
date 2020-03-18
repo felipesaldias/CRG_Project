@@ -1,5 +1,6 @@
 let jwt = require('jsonwebtoken');
 let config = require('../config');
+let User = require('../models/user');
 
 module.exports = class HandlerGenerator {
 
@@ -14,32 +15,38 @@ module.exports = class HandlerGenerator {
       let mockedUsername = 'admin';
       let mockedPassword = 'password';
       let usertype= "administrador";
-  
-      if (rut && password) {
-        if (rut === mockedUsername && password === mockedPassword) {
-          let token = jwt.sign({rut: rut, type: usertype},
+
+     
+      User.findOne({rut: rut}, function(err, user){
+        console.log(user)
+        if (rut && password && user) {
+          if (rut === user.rut && password === user.pass) {
+            let token = jwt.sign({rut: user.rut, type: user.type},
             config.secret,
             { expiresIn: '24h' // expires in 24 hours
-            }
-          );
-          // return the JWT token for the future API calls
-          res.json({
-            success: true,
-            message: 'Authentication successful!',
-            token: token
-          });
-        } else {
-          res.status(403).send({
+            });
+           // return the JWT token for the future API calls
+            res.json({
+              success: true,
+              message: 'Authentication successful!',
+              token: token
+            });
+          } 
+          else {
+            res.status(403).send({
+              success: false,
+              message: 'Incorrect username or password'
+            });
+          }
+        }
+        else {
+          res.status(400).send({
             success: false,
-            message: 'Incorrect username or password'
+            message: 'Authentication failed! Please check the request'
           });
         }
-      } else {
-        res.status(400).send({
-          success: false,
-          message: 'Authentication failed! Please check the request'
-        });
-      }
+     });
+
     }
 
     index (req, res) {
