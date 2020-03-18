@@ -6,12 +6,13 @@ var mongoose = require('mongoose');
 var HandlerGenerator = require('./handlers/handlers');
 var HandlerUser = require('./handlers/handlerUser');
 var cors = require('cors');
+let User = require('./models/user');
 
 let app = express();
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/crg',{useNewUrlParser: true, useUnifiedTopology: true})
+db = mongoose.connect('mongodb://localhost:27017/crg',{useNewUrlParser: true, useUnifiedTopology: true})
         .then(()=>{
             console.log("conexión realizada");
         })
@@ -19,21 +20,27 @@ mongoose.connect('mongodb://localhost:27017/crg',{useNewUrlParser: true, useUnif
 
 
 // Starting point of the server
+
+
 function main () {
+  console.log(User.findById({id: "5e71671ff16c8d6542693e49"}))
+  
    // Export app for other routes to use
   let handlers = new HandlerGenerator();
   let handlerUser = new HandlerUser();
   const port = config.port || 8000;
+
   app.use(bodyParser.urlencoded({ // Middleware
     extended: true
   }));
   app.use(bodyParser.json());
   app.use(cors());
+
   // Routes & Handlers
-  app.post('/login', handlers.login);
-  app.get('/login',middleware.checkToken,handlerUser.index);
+  app.post('/login', handlers.login);//cambiar nombre de handlers a hanlderAuth
+  app.get('/login',middleware.checkToken,handlers.index);
   app.post('/users', handlerUser.create);
-  //app.get('/users', handlerUser.index);
+  app.get('/users',middleware.checkToken,middleware.checkStaff,handlerUser.index);
   //app.get('/users/:id', handlerUser.show);
   //app.post('/exercises', handlerExercise.create);
   //app.get('/exercises', handlerExercise.index);
