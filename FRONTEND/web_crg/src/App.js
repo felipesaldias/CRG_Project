@@ -9,6 +9,7 @@ import CrgPanel from './pages/CrgPanel';
 import Home from './pages/Home/Home';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import CreateAccount from './components/CreateAccount';
+import Header from './components/Header/Header';
 
 //revisa si el usuario ya esta logeado
 //<Redirect from="/" to="/login" />
@@ -22,6 +23,7 @@ function App() {
 
     <BrowserRouter>
       <AuthState>
+        <Header></Header>
         <div className="body" >
           <Switch>
 
