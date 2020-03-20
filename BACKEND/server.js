@@ -23,7 +23,6 @@ db = mongoose.connect('mongodb://localhost:27017/crg',{useNewUrlParser: true, us
 
 
 function main () {
-  console.log(User.findById({id: "5e71671ff16c8d6542693e49"}))
   
    // Export app for other routes to use
   let handlers = new HandlerGenerator();

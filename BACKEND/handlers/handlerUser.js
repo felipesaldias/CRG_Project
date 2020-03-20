@@ -52,10 +52,16 @@ module.exports = class HandlerUser {
       });
       }
       index (req, res) {
-        res.json({
-          success: true,
-          message: 'aqui va a ir toda la lista de usuario',
+        User.find(function (err, docs) {
+          res.json({
+            success: true,
+            message: "Aqui va lista users: ",
+            users: docs
+          });
         });
+        
+
+        
       }
   }
   

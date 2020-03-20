@@ -21,6 +21,7 @@ const AuthState = props =>{
         loading: true
     }
     const [state,dispatch] = useReducer(AuthReducer, initialState)
+    
     const authenticatedUser = async() =>{
         const token = localStorage.getItem('token');
         if(token){
@@ -73,7 +74,6 @@ const AuthState = props =>{
         }
     }
     
-    // Cierra la sesión del usuario
     const logOut = () => {
         dispatch({
             type: LOG_OUT

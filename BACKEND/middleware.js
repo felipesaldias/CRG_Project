@@ -30,14 +30,19 @@ let checkToken = (req, res, next) => {
   }
 };
 let checkStaff = (req, res, next) => {
-  if (req.decoded.type == "admin" || "entrenador" || "nutricionista" ){
+  console.log("Estamos en el middelware checkStaff y el tipo es: " + req.decoded.type);
+  let type = req.decoded.type;
+  if (type == "admin" || type == "nutricionista" || type == "entrenador"){
+    console.log("Estamos en el middelware checkStaff y en el IF: ");
     next();
   }
   else{
+    console.log("Estamos en el middelware checkStaff y en el ELSE: ");
     return res.status(400).send({
       success: false,
       message: 'you are not staff member'
     });
+    
   }
 }
 module.exports = {
