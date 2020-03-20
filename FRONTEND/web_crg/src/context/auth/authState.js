@@ -1,6 +1,8 @@
 import React, {useReducer} from 'react';
 import AuthContext from './authContext';
 import AuthReducer from './authReducer';
+import { getAuthUser } from '../../utils/api';
+
 
 import clientAxios from '../../config/axios';
 import {
@@ -29,7 +31,7 @@ const AuthState = props =>{
         }
         try {
             console.log("antes del get");
-            const response = await clientAxios.get('/login');
+            const response = await getAuthUser()
             //matchear si es token veencido para eliminar el token del local storage
             console.log(response);
             console.log("despues del get")
@@ -61,10 +63,15 @@ const AuthState = props =>{
             // Obtener el usuario
             authenticatedUser();
         } catch (error) {
-            console.log(error.response.data.message);
-            const warning = {
-                msg: error.response.data.message,
-                type: 'warning-error'
+            if(error.response){
+                console.log(error.response.data.message);
+                const warning = {
+                    msg: error.response.data.message,
+                    type: 'warning-error'
+                }
+            }
+            else{
+                alert("El Backend no esta disponible, porfavor levantelo");
             }
 
             //dispatch({
