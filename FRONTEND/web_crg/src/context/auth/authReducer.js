@@ -19,7 +19,8 @@ export default (state,action) => {
                     ...state,
                     authenticated: true,
                     user: action.payload,
-                    loading: false 
+                    loading: false ,
+                    token: localStorage.getItem('token')
                 }
                 case LOG_OUT:
                     localStorage.removeItem('token');

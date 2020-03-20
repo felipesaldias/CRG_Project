@@ -37,7 +37,7 @@ function main () {
 
   // Routes & Handlers
   app.post('/login', handlers.login);//cambiar nombre de handlers a hanlderAuth
-  app.get('/login',middleware.checkToken,handlers.index);
+  app.get('/login',middleware.checkToken,handlers.index); // trae el usuario del token
   app.post('/users', handlerUser.create);
   app.get('/users',middleware.checkToken,middleware.checkStaff,handlerUser.index);
   app.get('/users/:id', handlerUser.show);

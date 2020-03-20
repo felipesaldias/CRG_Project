@@ -1,10 +1,8 @@
 import React, {useReducer} from 'react';
 import AuthContext from './authContext';
 import AuthReducer from './authReducer';
-import { getAuthUser } from '../../utils/api';
-
-
-import clientAxios from '../../config/axios';
+import { getAuthUser,getAuth } from '../../utils/api';
+import tokenAuth from '../../config/token';
 import {
     GET_USER,
     LOGIN_SUCCESSFUL,
@@ -12,7 +10,6 @@ import {
     LOG_OUT
 
 }from '../../types';
-import tokenAuth from '../../config/token';
 
 const AuthState = props =>{
     const initialState = {
@@ -51,7 +48,7 @@ const AuthState = props =>{
     const logIn = async datos => {//iniciar sesion
         console.log("login...")
         try {
-            const response = await clientAxios.post('/login', datos);
+            const response = await getAuth(datos);
             console.log("Estamos en la funcion login y la peticion post trajo esto "+response.data);
             alert(JSON.stringify(response.data));
             dispatch({

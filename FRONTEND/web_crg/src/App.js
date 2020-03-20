@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import CreateAccount from './components/CreateAccount';
 import Header from './components/Header/Header';
+import UserList from './components/UsersList/UserList';
 
 //revisa si el usuario ya esta logeado
 //<Redirect from="/" to="/login" />
@@ -36,7 +37,7 @@ function App() {
               <Redirect to='/home'></Redirect>
             </Route>
           </Switch>
-          
+          <UserList></UserList>
         </div>   
       </AuthState>
     </BrowserRouter>
