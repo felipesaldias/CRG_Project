@@ -59,9 +59,15 @@ module.exports = class HandlerUser {
             users: docs
           });
         });
-        
-
-        
+      }
+      show (req, res){
+        User.findOne({rut: req.params.id }, function (err, docs){
+          res.json({
+            success: true,
+            message: "Aqui va el perkin: ",
+            user: docs
+          });
+        })
       }
   }
   
