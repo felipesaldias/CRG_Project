@@ -48,7 +48,7 @@ class UserList extends Component {
         }
         this.extraButtons = []
     }
-    componentWillMount() {
+    componentDidMount() {
         //const response = getUsers().then((result)=>this.records = result.data.users)
        // this.records = 
        getUsers()
