@@ -34,7 +34,7 @@ function App() {
               <Route exact path ="/crg" component={Login} />
               <Route exact path ="/home" component={Home}/>
               <Route exact path ="/user" component={CreateAccount}/>
-              <PrivateRoute exact path ="/crg/panel" component={CrgPanel} />
+              <PrivateRoute exact path ="/crg/panel/*" component={CrgPanel} />
               <Route exact path="/*">
                 <Redirect to='/home'></Redirect>
               </Route>

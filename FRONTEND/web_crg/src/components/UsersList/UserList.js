@@ -48,7 +48,7 @@ class UserList extends Component {
         }
         this.extraButtons = []
     }
-    componentDidMount() {
+    componentWillMount() {
         //const response = getUsers().then((result)=>this.records = result.data.users)
        // this.records = 
        getUsers()
@@ -59,7 +59,7 @@ class UserList extends Component {
     render() {
         return (
             <div>
-                <ReactDatatable
+                <ReactDatatable 
                     config={this.config}
                     records={this.state.records}
                     columns={this.columns}

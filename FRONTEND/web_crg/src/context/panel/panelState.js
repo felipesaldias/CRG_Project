@@ -8,7 +8,7 @@ import{
 
 const PanelState = props =>{
     const initialState = {
-        focususer: "def"//null  
+        focususer: "def" //null  
     }
     const [state,dispatch] = useReducer(PanelReducer, initialState)
     

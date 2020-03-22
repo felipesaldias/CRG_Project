@@ -8,6 +8,7 @@ export const config = {
         print: true,
         extra: true,
     }
+    
 }
 export const columns= [
     {
