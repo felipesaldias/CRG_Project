@@ -38,10 +38,15 @@ const AuthState = props =>{
 
             });
         }catch (error) {
-            console.log(error.response);
-            const warning = {
-                msg: error.response.data.message,
-                type: 'warning-error'
+            if(error.response){
+                console.log(error.response);
+                const warning = {
+                    msg: error.response.data.message,
+                    type: 'warning-error'
+                }
+            }
+            else{
+                alert("El Backend no esta disponible, porfavor levantelo");
             }
         }
     }

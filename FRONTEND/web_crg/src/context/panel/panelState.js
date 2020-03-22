@@ -3,12 +3,13 @@ import PanelContext from './panelContext';
 import PanelReducer from './panelReducer';
 
 import{
-    SET_USER
+    SET_USER,
+    REMOVE_USER
 }from '../../types';
 
 const PanelState = props =>{
     const initialState = {
-        focususer: "def" //null  
+        focususer: null  
     }
     const [state,dispatch] = useReducer(PanelReducer, initialState)
     
@@ -18,11 +19,18 @@ const PanelState = props =>{
             payload: user
         });
     }
+    const removeUser = async user =>{
+        dispatch({
+            type: REMOVE_USER,
+            payload: user
+        });
+    }
     return(
         <PanelContext.Provider
             value={{
                 focususer: state.focususer,
-                setUser
+                setUser,
+                removeUser
             }}
         >{props.children}
 

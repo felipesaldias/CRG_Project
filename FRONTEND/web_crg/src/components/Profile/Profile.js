@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import {Link} from 'react-router-dom'
 
 import PanelContext from '../../context/panel/panelContext'
 
@@ -8,7 +9,9 @@ const Profile = props => {
     var holi= "Holi"
     return(
         <div>hola
-            {focususer}
+            {focususer.name}
+            <div><Link to='/crg/panel/user/edit'>Editar Informacion</Link></div>
+                           
         </div>
     );
 }

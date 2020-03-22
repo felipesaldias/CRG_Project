@@ -1,5 +1,6 @@
 import{
-    SET_USER
+    SET_USER,
+    REMOVE_USER
     //actions
 } from '../../types';
 export default(state,action)=> {
@@ -9,6 +10,11 @@ export default(state,action)=> {
             return{
                 ...state,
                 focususer: action.payload
+            }
+        case REMOVE_USER:
+            return{
+                ...state,
+                focususer: null
             }
         default:
             return state; 

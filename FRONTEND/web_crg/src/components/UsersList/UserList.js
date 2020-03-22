@@ -81,11 +81,11 @@ class UserList extends Component {
         //const response = getUsers().then((result)=>this.records = result.data.users)
        // this.records = 
        getUsers()
-       .then(result => this.setState({ records: result.data.users }))
+       .then(result => this.setState({ records: result.data.users }))//aparte guardarlos en el contexto en una variable users
     }
     editUser(user) {
       console.log("Edit User", user);
-      this.context.setUser(JSON.stringify(user)).then(
+      this.context.setUser(user).then(
 
         ()=>this.props.history.push('/crg/panel/profile')
         )
