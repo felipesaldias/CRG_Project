@@ -27,14 +27,14 @@ const CrgPanel = props => {
         <div>
         <ul>
             <li><Link to='/crg/panel/newaccount'>Crear Usuario</Link></li>
-            <li><Link to='/crg/panel/users'>Listado de Usuarios</Link></li>
+            <li><Link to='/crg/panel/user'>Listado de Usuarios</Link></li>
           </ul>
         </div>
         <div>
           <Switch>
             <Route exact path ="/crg/panel/profile" component={Profile}/>
             <Route exact path ="/crg/panel/newaccount" component={CreateAccount} /> 
-            <Route exact path ="/crg/panel/users" component={UserList} /> 
+            <Route exact path ="/crg/panel/user" component={UserList} /> 
           </Switch>
         </div>
       </div>       

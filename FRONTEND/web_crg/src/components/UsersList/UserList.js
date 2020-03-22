@@ -1,59 +1,96 @@
-import React, { Component} from 'react';
+import React, { Fragment,Component} from 'react';
 //import { render} from 'react-dom';
 import ReactDatatable from '@ashvin27/react-datatable';
 //import createConfigs from './datatables.config'
-import {columns,config, extraButtons} from './datatables.config'
+
 import {getUsers} from '../../utils/api'
+import PanelContext from '../../context/panel/panelContext';
+
+
 
 class UserList extends Component {
+    static contextType = PanelContext //allow access to the context
+
     constructor(props) {
         super(props);
-        this.columns = columns
-        this.config = config
+
+        this.columns = [{
+          key: "name",
+          text: "Name",
+          className: "name",
+          align: "left",
+          sortable: true,
+      },
+      {
+          key: "rut",
+          text: "Rut",
+          className: "address",
+          align: "left",
+          sortable: true
+      },
+      {
+          key: "type",
+          text: "Tipo",
+          className: "postcode",
+          sortable: true
+      },
+      {
+          key: "email",
+          text: "Correo Electronico",
+          className: "rating",
+          align: "left",
+          sortable: true
+      },{
+          key: "action",
+          text: "Action",
+          className: "action",
+          width: 100,
+          align: "left",
+          sortable: false,
+          cell: record => { 
+              return (
+                  <Fragment>
+                      <button
+                          className="btn btn-primary btn-sm"
+                          onClick={() => this.editUser(record)}
+                          style={{marginRight: '5px'}}>
+                          <i className="fa fa-edit"></i>
+                      </button>
+                  </Fragment>
+              );
+          }
+      }]
+        this.config = {
+          page_size: 10,
+          length_menu: [ 10, 20, 50 ],
+          button: {
+              excel: true,
+              print: true,
+              extra: true,
+          }
+          
+      }
         this.state = {
-            records: [
-              {
-                "id": "55f14312c7447c3da7051b26",
-                "address": "228 City Road",
-                "name": ".CN Chinese",
-                "postcode": "3JH",
-                "rating": 5,
-                "type_of_food": "Chinese"
-              },
-              {
-                "id": "55f14312c7447c3da7051b27",
-                "address": "376 Rayleigh Road",
-                "name": "@ Thai",
-                "postcode": "5PT",
-                "rating": 5.5,
-                "type_of_food": "Thai"
-              },
-              {
-                "id": "55f14312c7447c3da7051b28",
-                "address": "30 Greyhound Road Hammersmith",
-                "name": "@ Thai Restaurant",
-                "postcode": "8NX",
-                "rating": 4.5,
-                "type_of_food": "Thai"
-              },
-              {
-                "id": "55f14312c7447c3da7051b29",
-                "address": "30 Greyhound Road Hammersmith",
-                "name": "@ Thai Restaurant",
-                "postcode": "8NX",
-                "rating": 4.5,
-                "type_of_food": "Thai"
-              }
-            ]
+            records: []
         }
+        
         this.extraButtons = []
     }
+    
     componentWillMount() {
         //const response = getUsers().then((result)=>this.records = result.data.users)
        // this.records = 
        getUsers()
        .then(result => this.setState({ records: result.data.users }))
     }
+    editUser(user) {
+      console.log("Edit User", user);
+      this.context.setUser(JSON.stringify(user)).then(
+
+        ()=>this.props.history.push('/crg/panel/profile')
+        )
+      //
+  }
     
 
     render() {
