@@ -5,24 +5,30 @@ import axios from 'axios';
  const EditUser = () => {
     const panelContext = useContext(PanelContext)
     const {focususer} = panelContext;
-    const [user, handleUser] = useState({
-        name: focususer.name,
-        rut: focususer.rut,
-        pass: focususer.pass,
-        email: focususer.email,
-        phone: focususer.phone,
-        type: focususer.type,
-      });
-      const {name , rut, pass, email, phone, type} = user
-      const submit = e =>{
-        let payload = {...user, id: focususer.id}
-        e.preventDefault(); 
-        axios.put('http://localhost:8001/users',payload).then(result =>{alert(result.data.msg)})
-  
-        
-  
-  
-        console.log(this.state)
+    const is = focususer
+    var initialState= focususer?{name: focususer.name,
+                                rut: focususer.rut,
+                                pass: focususer.pass,
+                                email: focususer.email,
+                                phone: focususer.phone,
+                                type: focususer.type}
+                                :
+                                {name: "",
+                                rut: "", 
+                                pass: "" ,
+                                email: "",
+                                phone: "", 
+                                type: "" }
+    
+    const [user, handleUser] = useState(initialState);
+
+    const {name , rut, pass, email, phone, type} = user
+    const submit = e =>{
+      let payload = {...user, id: focususer._id}
+      e.preventDefault(); 
+      console.log(payload);
+      axios.put('http://localhost:8001/users',payload).then(result =>{alert(result.data.msg)})
+
       }
   
       const handleState = e =>{
