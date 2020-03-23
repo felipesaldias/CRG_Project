@@ -27,7 +27,7 @@ import { updateUser} from '../../utils/api';
     const submit = e =>{
       e.preventDefault(); 
       console.log(user);
-      updateUser(focususer._id+1,user).then(result =>{
+      updateUser(focususer._id,user).then(result =>{
 		  alert(JSON.stringify(result.data));
 	  });
       //axios.put(`http://localhost:8001/users/${focususer._id}`,user).then(result =>{alert(result.data.msg)})

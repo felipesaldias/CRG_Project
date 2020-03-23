@@ -89,5 +89,20 @@ module.exports = class HandlerUser {
         });
         console.log(ress);
       }
+      delete(req,res){
+        User.deleteById(req.params.id,function (err,userDocument) {
+            if(userDocument){
+                res.json({
+                    msg: `usuario rut: ${JSON.stringify(userDocument)} se eliminó`
+                });
+            }
+            else{
+                res.status(403).send({
+                    msg: "No se pudo eliminar el usuario"
+                });
+            }
+            // mongodb: { deleted: true, name: 'Fluffy', _id: '53da93b1...' }
+        })
+      }
   }
   

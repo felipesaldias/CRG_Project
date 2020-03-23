@@ -42,6 +42,7 @@ function main () {
   app.get('/users',middleware.checkToken,middleware.checkStaff,handlerUser.index);
   app.get('/users/:id', handlerUser.show);
   app.put('/users/:id',handlerUser.update);
+  app.delete('/users/:id',handlerUser.delete);
   //app.post('/exercises', handlerExercise.create);
   //app.get('/exercises', handlerExercise.index);
   //app.get('/exercises/:id', handlerExercise.show);
