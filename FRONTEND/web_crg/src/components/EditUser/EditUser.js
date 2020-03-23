@@ -1,11 +1,12 @@
 import React, {useContext, useState} from 'react'
 import PanelContext from '../../context/panel/panelContext'
-import axios from 'axios';
+//import axios from 'axios';
+import { updateUser} from '../../utils/api';
+
 
  const EditUser = () => {
     const panelContext = useContext(PanelContext)
     const {focususer} = panelContext;
-    const is = focususer
     var initialState= focususer?{name: focususer.name,
                                 rut: focususer.rut,
                                 pass: focususer.pass,
@@ -24,10 +25,12 @@ import axios from 'axios';
 
     const {name , rut, pass, email, phone, type} = user
     const submit = e =>{
-      let payload = {...user, id: focususer._id}
       e.preventDefault(); 
-      console.log(payload);
-      axios.put('http://localhost:8001/users',payload).then(result =>{alert(result.data.msg)})
+      console.log(user);
+      updateUser(focususer._id+1,user).then(result =>{
+		  alert(JSON.stringify(result.data));
+	  });
+      //axios.put(`http://localhost:8001/users/${focususer._id}`,user).then(result =>{alert(result.data.msg)})
 
       }
   
@@ -116,7 +119,7 @@ import axios from 'axios';
                                 type="submit"
                                 className="u-full-width button-primary"
                                 onClick={submit}
-                            >Crear cuenta</button>
+                            >Actualizar Usuario</button>
                             </form>
                             </div>
                             <div className="one-half column">

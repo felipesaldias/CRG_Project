@@ -69,5 +69,25 @@ module.exports = class HandlerUser {
           });
         })
       }
+      update(req,res){
+        
+        console.log(req.body);
+        console.log(req.params.id);
+
+        const ress = User.findOneAndUpdate({ _id: req.params.id },req.body,function (err,result){
+          if(result){
+            res.json({
+              success: true,
+              message: "update"
+            });
+          }
+          else{
+            res.status(403).send({
+                msg: "Falló la actualización del User"
+            });
+          }
+        });
+        console.log(ress);
+      }
   }
   

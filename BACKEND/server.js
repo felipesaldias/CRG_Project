@@ -41,6 +41,7 @@ function main () {
   app.post('/users', handlerUser.create);
   app.get('/users',middleware.checkToken,middleware.checkStaff,handlerUser.index);
   app.get('/users/:id', handlerUser.show);
+  app.put('/users/:id',handlerUser.update);
   //app.post('/exercises', handlerExercise.create);
   //app.get('/exercises', handlerExercise.index);
   //app.get('/exercises/:id', handlerExercise.show);
