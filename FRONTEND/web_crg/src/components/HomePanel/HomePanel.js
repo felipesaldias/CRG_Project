@@ -7,7 +7,7 @@ const HomePanel = () => {
         <div class="container flex-wrap " >
 
           <div class="row d-flex justify-content-center">
-            <div class="col-xs-6 col-md-3 flex-wrap">
+            <div class="col-xs-6 col-md-3">
             <button type="button" class="btn btn-default btn-lg">
               <Link to='/crg/panel/newaccount'>Crear Usuario</Link> 
 
