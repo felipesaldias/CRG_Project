@@ -10,7 +10,7 @@ import CrgPanel from './pages/CrgPanel';
 import Home from './pages/Home/Home';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import CreateAccount from './components/CreateAccount';
-import Header from './components/Header/Header';
+
 //import UserList from './components/UsersList/UserList';
 
 
@@ -27,7 +27,7 @@ function App() {
     <BrowserRouter>
       <AuthState>
         <PanelState>
-          <Header></Header>
+          
           <div className="body" >
             <Switch>
               <Route exact path ="/" component={Home}/>
