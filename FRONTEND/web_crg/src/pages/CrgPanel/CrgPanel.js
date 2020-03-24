@@ -8,10 +8,11 @@ import CreateAccount from '../../components/CreateAccount';
 import EditUser from '../../components/EditUser/EditUser';
 import HomePanel from '../../components/HomePanel/HomePanel';
 import CreateRoutine from '../../components/CreateRoutine/CreateRoutine';
-import LoadPdf from '../../components/LoadPdf/LoadPdf';
+import UploadPdf from '../../components/UploadPdf/UploadPdf';
 import Calendar from '../../components/Calendar/Calendar';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+
 
 import { Link,BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Fragment } from 'react';
@@ -43,7 +44,7 @@ const CrgPanel = props => {
               <Route exact path ="/crg/panel/user" component={UserList} />
               <Route exact path ="/crg/panel/user/edit" component={EditUser} /> 
               <Route exact path ="/crg/panel/user/createroutine" component={CreateRoutine}/>
-              <Route exact path ="/crg/panel/user/loadpdf" component={LoadPdf}/>
+              <Route exact path ="/crg/panel/user/loadpdf" component={UploadPdf}/>
               <Route exact path ="/crg/panel/user/calendar" component={Calendar}/>
             </Switch>
           </div> 

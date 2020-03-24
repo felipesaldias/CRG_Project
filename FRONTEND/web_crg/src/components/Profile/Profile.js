@@ -11,6 +11,7 @@ const Profile = props => {
         <div>hola
             {focususer.name}
             <div><Link to='/crg/panel/user/edit'>Editar Informacion</Link></div>
+            <div><Link to='/crg/panel/user/loadpdf'>Subir Pdf</Link></div>
                            
         </div>
     );
