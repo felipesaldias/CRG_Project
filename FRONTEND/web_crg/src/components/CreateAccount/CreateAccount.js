@@ -31,7 +31,7 @@ class CreateAccount extends Component {
       e.preventDefault(); 
         //axios.get('https://pokeapi.co/api/v2/pokemon/ditto/').then(result =>{console.log(result.data.id)}).catch(console.log);
         //axios.get('http://localhost:8001').then(result =>{console.log(result.data)}).catch(console.log);
-        axios.post('http://localhost:8001/users',this.state).then(result =>{alert(result.data.msg)})//this.setState({rut:result.data})});
+      axios.post('http://localhost:8001/users',this.state).then(result =>{alert(result.data.msg)})//this.setState({rut:result.data})});
 
       
 

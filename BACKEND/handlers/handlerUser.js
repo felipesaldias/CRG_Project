@@ -52,10 +52,57 @@ module.exports = class HandlerUser {
       });
       }
       index (req, res) {
-        res.json({
-          success: true,
-          message: 'aqui va a ir toda la lista de usuario',
+        User.find(function (err, docs) {
+          res.json({
+            success: true,
+            message: "Aqui va lista users: ",
+            users: docs
+          });
         });
+      }
+      show (req, res){
+        User.findOne({rut: req.params.id }, function (err, docs){
+          res.json({
+            success: true,
+            message: "Aqui va el perkin: ",
+            user: docs
+          });
+        })
+      }
+      update(req,res){
+        
+        console.log(req.body);
+        console.log(req.params.id);
+
+        const ress = User.findOneAndUpdate({ _id: req.params.id },req.body,function (err,result){
+          if(result){
+            res.json({
+              success: true,
+              message: "update"
+            });
+          }
+          else{
+            res.status(403).send({
+                msg: "Falló la actualización del User"
+            });
+          }
+        });
+        console.log(ress);
+      }
+      delete(req,res){
+        User.deleteById(req.params.id,function (err,userDocument) {
+            if(userDocument){
+                res.json({
+                    msg: `usuario rut: ${JSON.stringify(userDocument)} se eliminó`
+                });
+            }
+            else{
+                res.status(403).send({
+                    msg: "No se pudo eliminar el usuario"
+                });
+            }
+            // mongodb: { deleted: true, name: 'Fluffy', _id: '53da93b1...' }
+        })
       }
   }
   

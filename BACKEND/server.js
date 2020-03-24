@@ -23,7 +23,6 @@ db = mongoose.connect('mongodb://localhost:27017/crg',{useNewUrlParser: true, us
 
 
 function main () {
-  console.log(User.findById({id: "5e71671ff16c8d6542693e49"}))
   
    // Export app for other routes to use
   let handlers = new HandlerGenerator();
@@ -38,10 +37,12 @@ function main () {
 
   // Routes & Handlers
   app.post('/login', handlers.login);//cambiar nombre de handlers a hanlderAuth
-  app.get('/login',middleware.checkToken,handlers.index);
+  app.get('/login',middleware.checkToken,handlers.index); // trae el usuario del token
   app.post('/users', handlerUser.create);
   app.get('/users',middleware.checkToken,middleware.checkStaff,handlerUser.index);
-  //app.get('/users/:id', handlerUser.show);
+  app.get('/users/:id', handlerUser.show);
+  app.put('/users/:id',handlerUser.update);
+  app.delete('/users/:id',handlerUser.delete);
   //app.post('/exercises', handlerExercise.create);
   //app.get('/exercises', handlerExercise.index);
   //app.get('/exercises/:id', handlerExercise.show);

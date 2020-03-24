@@ -1,8 +1,8 @@
 import React, {useReducer} from 'react';
 import AuthContext from './authContext';
 import AuthReducer from './authReducer';
-
-import clientAxios from '../../config/axios';
+import { getAuthUser,getAuth } from '../../utils/api';
+import tokenAuth from '../../config/token';
 import {
     GET_USER,
     LOGIN_SUCCESSFUL,
@@ -10,7 +10,6 @@ import {
     LOG_OUT
 
 }from '../../types';
-import tokenAuth from '../../config/token';
 
 const AuthState = props =>{
     const initialState = {
@@ -21,6 +20,7 @@ const AuthState = props =>{
         loading: true
     }
     const [state,dispatch] = useReducer(AuthReducer, initialState)
+    
     const authenticatedUser = async() =>{
         const token = localStorage.getItem('token');
         if(token){
@@ -28,7 +28,7 @@ const AuthState = props =>{
         }
         try {
             console.log("antes del get");
-            const response = await clientAxios.get('/login');
+            const response = await getAuthUser()
             //matchear si es token veencido para eliminar el token del local storage
             console.log(response);
             console.log("despues del get")
@@ -38,17 +38,22 @@ const AuthState = props =>{
 
             });
         }catch (error) {
-            console.log(error.response);
-            const warning = {
-                msg: error.response.data.message,
-                type: 'warning-error'
+            if(error.response){
+                console.log(error.response);
+                const warning = {
+                    msg: error.response.data.message,
+                    type: 'warning-error'
+                }
+            }
+            else{
+                alert("El Backend no esta disponible, porfavor levantelo");
             }
         }
     }
     const logIn = async datos => {//iniciar sesion
         console.log("login...")
         try {
-            const response = await clientAxios.post('/login', datos);
+            const response = await getAuth(datos);
             console.log("Estamos en la funcion login y la peticion post trajo esto "+response.data);
             alert(JSON.stringify(response.data));
             dispatch({
@@ -60,10 +65,15 @@ const AuthState = props =>{
             // Obtener el usuario
             authenticatedUser();
         } catch (error) {
-            console.log(error.response.data.message);
-            const warning = {
-                msg: error.response.data.message,
-                type: 'warning-error'
+            if(error.response){
+                console.log(error.response.data.message);
+                const warning = {
+                    msg: error.response.data.message,
+                    type: 'warning-error'
+                }
+            }
+            else{
+                alert("El Backend no esta disponible, porfavor levantelo");
             }
 
             //dispatch({
@@ -73,7 +83,6 @@ const AuthState = props =>{
         }
     }
     
-    // Cierra la sesión del usuario
     const logOut = () => {
         dispatch({
             type: LOG_OUT

@@ -12,10 +12,6 @@ module.exports = class HandlerGenerator {
       let rut = req.body.rut;
       let password = req.body.password;
       // For the given username fetch user from DB
-      let mockedUsername = 'admin';
-      let mockedPassword = 'password';
-      let usertype= "administrador";
-
      
       User.findOne({rut: rut}, function(err, user){
         console.log(user)
@@ -64,6 +60,5 @@ module.exports = class HandlerGenerator {
         msg: " "
       }); 
     }
-
   }
   
