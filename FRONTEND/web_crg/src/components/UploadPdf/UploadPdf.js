@@ -2,33 +2,39 @@ import React, {useState, useContext} from 'react';
 import './UploadPdf.css'
 import {postPdf}from '../../utils/api'
 import PanelContext from '../../context/panel/panelContext'
+var fileDownload = require('js-file-download');
 
 const UploadPdf = () => {
 
     const panelContext = useContext(PanelContext)
     const {focususer} = panelContext;
 
-    const [fileState, setfileState] = useState({
-        selectedFile: '',
-        loaded: ''
-    })
+    const [file, setFile] = useState('')
+    const [filename, setFilename] = useState('choose File')
     const onChangeHandler=event=>{
 
         console.log(event.target.files[0])
         let archivo=event.target.files[0]
-        setfileState({
-            selectedFile: archivo,//archivo,
-            loaded: 0
-        })
+        setFile(event.target.files[0])
+        setFilename(event.target.files[0].name)
     }
     const onClickHandler=()=>{
         const data = new FormData() 
         console.log("el archivo que vamos a appendear es")
-        console.log(fileState.selectedFile)
-        data.append('file', fileState.selectedFile)
-        console.log(data)
-        postPdf(focususer._id,data).then(result =>{
-            alert(JSON.stringify(result.data));
+        console.log(file)
+        data.append('file', file)
+        console.log(data.entries())
+        
+
+        for (var pair of data.entries()){
+            console.log(pair[0]+ ', '+ pair[1]); 
+        }
+        //console.log(data.getAll())
+        postPdf(focususer._id, data).then(result =>{
+            //alert(JSON.stringify(result.data));
+            console.log("result es: " +JSON.stringify(result))
+            fileDownload(result.files, "descargado.pdf")
+            //window.location.assign(result.responseText)
         });
     }
     return (
