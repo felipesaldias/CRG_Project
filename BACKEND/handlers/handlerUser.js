@@ -1,6 +1,6 @@
 let User = require('../models/user');
-var mongodb = require('mongodb');
-var Binary = require('mongodb').Binary;
+let Exercise = require('../models/exercise');
+//let Routine = require('../models/routie');
 const fs= require('fs')
 
 
@@ -134,6 +134,11 @@ module.exports = class HandlerUser {
         var file = fs.createReadStream(`./files/pdf/${req.params.id}.pdf`);
         file.pipe(res);
 
+      }
+      setexercise(req,res){
+        var exercise = new Exercise();
+        var params = req.body;
+      
       }
   }
   

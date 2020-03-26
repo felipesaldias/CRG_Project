@@ -8,8 +8,8 @@ var ExerciseSchema = Schema({
     img: String,
     name: String,
     body_region: String,
-    body_group: String
-
+    body_group: String,
+    
 });
 
 module.exports = mongoose.model('exercise',ExerciseSchema);

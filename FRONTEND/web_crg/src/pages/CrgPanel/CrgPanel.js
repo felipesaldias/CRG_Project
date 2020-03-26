@@ -5,6 +5,7 @@ import PanelContext from '../../context/panel/panelContext';
 import UserList from '../../components/UsersList/UserList';
 import Profile from '../../components/Profile/Profile';
 import CreateAccount from '../../components/CreateAccount';
+import CreateExercise from '../../components/CreateExercise/CreateExercise';
 import EditUser from '../../components/EditUser/EditUser';
 import HomePanel from '../../components/HomePanel/HomePanel';
 import CreateRoutine from '../../components/CreateRoutine/CreateRoutine';
@@ -46,6 +47,7 @@ const CrgPanel = props => {
               <Route exact path ="/crg/panel/user/createroutine" component={CreateRoutine}/>
               <Route exact path ="/crg/panel/user/loadpdf" component={UploadPdf}/>
               <Route exact path ="/crg/panel/user/calendar" component={Calendar}/>
+              <Route exact path ="/crg/panel/addexercise" component={CreateExercise}/>
             </Switch>
           </div> 
         <Footer></Footer>    
