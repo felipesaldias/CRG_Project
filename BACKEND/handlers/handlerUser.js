@@ -109,20 +109,12 @@ module.exports = class HandlerUser {
         })
       }
       loadpdf (req, res){
-        //console.log(req)
-        // if (req.files===null){
-        //   return res.status(200).send({msg: "no vienen archivos en la peticion"})
-        // }
-        fs.writeFile('./files/pdf/holactm.pdf',req.file.buffer,{encode:'binary'},()=>{
+
+        fs.writeFile(`./files/pdf/${req.params.id}.pdf`,req.file.buffer,{encode:'binary'},()=>{
           console.log("TU ARCHIVO SE GUARDO ")
         })
-        console.log("EL FILE ES: " +req.file)
-        //let file=req.file.buffer
-        //let file=Buffer.from(req.file.buffer, 'binary')
-        //console.log("   EL BUFFER Es tipo " + req.file.buffer)
-        //console.log("el objeto antes de guardarse es: "+ file )
-        
-        User.findOneAndUpdate({ _id: req.params.id },{pdf: req.file.buffer},function (err,result){
+
+        User.findOneAndUpdate({ _id: req.params.id },{pdf: true},function (err,result){
           if(result){
             res.json({
               success: true,
@@ -131,45 +123,17 @@ module.exports = class HandlerUser {
           }
           else{
             res.status(403).send({
-                msg: "su pdf no se pudo guardar en la db"
+                msg: "su pdf no se pudo guardar el pdf"
             });
           }
         });
-        //console.log(req.files.file);
-        //console.log(req.file)
-        //return res.status(200).send((Buffer.from(req.file.buffer, 'binary')))
-        //return res.status(200).send((Buffer.from(req.files.file.data, 'binary')))
       }
+
       getpdf (req, res){
-        var file = fs.createReadStream("./files/pdf/holactm.pdf");
+        console.log("el usuario que esta accediendo al getpdf es "+ req.params.id)
+        var file = fs.createReadStream(`./files/pdf/${req.params.id}.pdf`);
         file.pipe(res);
-       //User.findById(req.params.id,(err,doc)=>{
-        // let file=fs.readFileSync('./files/pdf/holactm.pdf','binary')
-        // let file3=fs.readFileSync('./files/pdf/holactm.pdf',{encode:'binary'})
-        
-        // fs.writeFile('./files/pdf/holactm2.pdf',file,{encode:'binary'},()=>{
-        //   console.log("TU ARCHIVO SE GUARDO ")
-        // })
-        // fs.writeFile('./files/pdf/holactm3.pdf',file3,{encode:'binary'},()=>{
-        //   console.log("TU ARCHIVO SE GUARDO ")
-        // })
-        // console.log("yo soy tu file3:  "+file)
-        //res.contentType("application/pdf");
-        // res.setHeader('Content-Type', 'application/pdf');
-        // var path= __dirname + '/files/pdf/holactm.pdf'
-        //res.download(path);
 
-        //return res.status(200).send(file3)
-
-        // User.findOne({_id: req.params.id},(err,doc)=>{
-          // let pdf=doc.pdf
-          // console.log(pdf)
-          // buf=Buffer.from(doc.pdf.buffer, "binary")
-          // console.log(buf)
-          // 
-          // return res.status(200).send(doc.pdf)
-          
-        //})
       }
   }
   

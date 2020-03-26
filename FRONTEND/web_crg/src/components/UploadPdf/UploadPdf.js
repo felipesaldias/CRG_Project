@@ -24,18 +24,12 @@ const UploadPdf = () => {
         console.log(file)
         data.append('file', file)
         console.log(data.entries())
-        //console.log(data.getAll())
-        fileDownload(file,"descargado.pdf")
 
         
         postPdf(focususer._id, data).then(result =>{
-            //alert(JSON.stringify(result.data));
             console.log("result es: " +JSON.stringify(result.data))
-            //var f = new File([""], "filename.pdf", result.data.file)
-            //fileDownload(result.data.file, "descargado.pdf")
            console.log("")
-            //fileDownload(result.data, "descargado.pdf")
-            //window.location.assign(result.responseText)
+
         });
     }
     return (
