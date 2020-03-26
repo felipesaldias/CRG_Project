@@ -6,7 +6,15 @@ var mongoose = require('mongoose');
 var HandlerGenerator = require('./handlers/handlers');
 var HandlerUser = require('./handlers/handlerUser');
 var cors = require('cors');
-let User = require('./models/user');
+
+var fileUpload = require('express-fileupload');
+
+
+
+var multer  = require('multer')
+
+var storage = multer.memoryStorage()
+var upload = multer({ storage: storage })
 
 let app = express();
 
@@ -34,6 +42,7 @@ function main () {
   }));
   app.use(bodyParser.json());
   app.use(cors());
+  //app.use(fileUpload({preserveExtension:true}))
 
   // Routes & Handlers
   app.post('/login', handlers.login);//cambiar nombre de handlers a hanlderAuth
@@ -43,6 +52,8 @@ function main () {
   app.get('/users/:id', handlerUser.show);
   app.put('/users/:id',handlerUser.update);
   app.delete('/users/:id',handlerUser.delete);
+  app.post('/users/:id/pdf',upload.single("file"),handlerUser.loadpdf)
+  app.get('/users/:id/pdf',handlerUser.getpdf)
   //app.post('/exercises', handlerExercise.create);
   //app.get('/exercises', handlerExercise.index);
   //app.get('/exercises/:id', handlerExercise.show);

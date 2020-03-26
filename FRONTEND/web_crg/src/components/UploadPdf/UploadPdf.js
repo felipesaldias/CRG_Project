@@ -24,16 +24,17 @@ const UploadPdf = () => {
         console.log(file)
         data.append('file', file)
         console.log(data.entries())
-        
-
-        for (var pair of data.entries()){
-            console.log(pair[0]+ ', '+ pair[1]); 
-        }
         //console.log(data.getAll())
+        fileDownload(file,"descargado.pdf")
+
+        
         postPdf(focususer._id, data).then(result =>{
             //alert(JSON.stringify(result.data));
-            console.log("result es: " +JSON.stringify(result))
-            fileDownload(result.files, "descargado.pdf")
+            console.log("result es: " +JSON.stringify(result.data))
+            //var f = new File([""], "filename.pdf", result.data.file)
+            //fileDownload(result.data.file, "descargado.pdf")
+           console.log("")
+            //fileDownload(result.data, "descargado.pdf")
             //window.location.assign(result.responseText)
         });
     }
@@ -44,12 +45,13 @@ const UploadPdf = () => {
 	              <form method="post" action="#" id="#">
                       <div class="form-group files">
                         <label>Upload Your File </label>
-                        <input type="file" name="file" onChange={onChangeHandler} class="form-control" multiple=""/>
+                        <input type="file" name="pdf" onChange={onChangeHandler} class="form-control" multiple=""/>
                         </div>   
                   </form>    
 	          </div>
 	        </div>
-            <button type="button" class="btn btn-success btn-block" onClick={onClickHandler}>Upload</button> 
+            <button type="button" class="btn btn-success btn-block" onClick={onClickHandler}>Upload</button>
+             
         </div>
     );
 };

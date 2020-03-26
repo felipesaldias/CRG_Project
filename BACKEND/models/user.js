@@ -13,7 +13,8 @@ var UserSchema = Schema({
     type: String,
     createdAt: Date,
     updatedAt:{type: Date,default: Date.now},
-    routines: [{ type: Schema.Types.ObjectId, ref: 'Routine' }]
+    routines: [{ type: Schema.Types.ObjectId, ref: 'Routine' }],
+    pdf: {binData: Buffer}
 });
-UserSchema.plugin(mongoose_delete, {deletedAt : true, overrideMethods: 'all'  });
+UserSchema.plugin(mongoose_delete, {deletedAt : true, overrideMethods: ['find']  });
 module.exports = mongoose.model('user',UserSchema);
