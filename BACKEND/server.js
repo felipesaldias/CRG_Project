@@ -44,6 +44,7 @@ function main () {
   }));
   app.use(bodyParser.json());
   app.use(cors());
+  app.use(express.static('public'));
   //app.use(fileUpload({preserveExtension:true}))
 
   // Routes & Handlers

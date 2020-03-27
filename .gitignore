@@ -15,6 +15,7 @@
 /FRONTEND/web_crg/node_modules
 /CRG_Project/BACKEND/node_modules
 /BACKEND/files/pdf/*
+/BACKEND/public/exercises/img/*
 
 #con
 /BACKEND/.env

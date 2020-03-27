@@ -21,7 +21,7 @@ module.exports = class HandlerExercise {
         
         exercise.save((err,data) => {
             console.log(data._id)
-            fs.writeFile(`./files/pdf/${data._id}.${extension}`,req.file.buffer,{encode:'binary'},()=>{})
+            fs.writeFile(`./public/exercises/img/${data._id}.${extension}`,req.file.buffer,{encode:'binary'},()=>{})
 
             
         });
