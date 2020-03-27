@@ -15,3 +15,4 @@ img,{headers: {
     'Region': `${data.region}`,
     'Group' : `${data.group}`
 }},);
+export const getExercises = () => clienteAxios.get('/exercises');

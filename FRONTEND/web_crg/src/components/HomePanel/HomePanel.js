@@ -46,6 +46,11 @@ const HomePanel = () => {
                     <Link to='/crg/panel/addexercise'>Crear Ejercicio</Link>
                 </button>
             </div>
+            <div class="col-xs-6 col-md-3">
+                <button type="button" class="btn btn-default btn-lg">
+                    <Link to='/crg/panel/exercise'>Ejercicio</Link>
+                </button>
+            </div>
           </div>
         
         </div>

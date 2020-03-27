@@ -58,6 +58,7 @@ function main () {
   app.post('/users/:id/pdf',upload.single("file"),handlerUser.loadpdf)
   app.get('/users/:id/pdf',handlerUser.getpdf)
   app.post('/exercises',upload.single("file"), handlerExercise.create)
+  app.get('/exercises',handlerExercise.index)
   //app.post('/exercises', handlerExercise.create);
   //app.get('/exercises', handlerExercise.index);
   //app.get('/exercises/:id', handlerExercise.show);
