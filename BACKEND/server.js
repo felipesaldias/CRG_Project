@@ -5,6 +5,7 @@ let middleware = require('./middleware');
 var mongoose = require('mongoose');
 var HandlerGenerator = require('./handlers/handlers');
 var HandlerUser = require('./handlers/handlerUser');
+var HandlerExercise = require('./handlers/handlerExercise');
 var cors = require('cors');
 
 var fileUpload = require('express-fileupload');
@@ -35,6 +36,7 @@ function main () {
    // Export app for other routes to use
   let handlers = new HandlerGenerator();
   let handlerUser = new HandlerUser();
+  let handlerExercise = new HandlerExercise();
   const port = config.port || 8000;
 
   app.use(bodyParser.urlencoded({ // Middleware
@@ -54,6 +56,7 @@ function main () {
   app.delete('/users/:id',handlerUser.delete);
   app.post('/users/:id/pdf',upload.single("file"),handlerUser.loadpdf)
   app.get('/users/:id/pdf',handlerUser.getpdf)
+  app.post('/exercises',upload.single("file"), handlerExercise.create)
   //app.post('/exercises', handlerExercise.create);
   //app.get('/exercises', handlerExercise.index);
   //app.get('/exercises/:id', handlerExercise.show);

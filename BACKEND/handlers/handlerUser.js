@@ -138,6 +138,7 @@ module.exports = class HandlerUser {
       setexercise(req,res){
         var exercise = new Exercise();
         var params = req.body;
+        console.log(params);
       
       }
   }

@@ -9,3 +9,9 @@ export const postPdf = (id,data) => clienteAxios.post(`/users/${id}/pdf`,data);
 export const getPdf = (id) => clienteAxios.get(`/users/${id}/pdf`,{
     responseType: "blob"
 });
+export const postExercise = (data,img) => clienteAxios.post(`/exercises`,
+img,{headers: {
+    'Name': `${data.name}`,
+    'Region': `${data.region}`,
+    'Group' : `${data.group}`
+}},);

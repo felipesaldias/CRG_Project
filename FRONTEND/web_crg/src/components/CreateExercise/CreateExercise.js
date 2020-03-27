@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import {postExercise}from '../../utils/api'
 
-export default function CreateExcercise() {
+export default function CreateExercise() {
   var initialState= 
   {name: "",
   region: "upper", 
@@ -28,14 +29,16 @@ const handleState = e =>{
   const handleUpload = async (e) => {
     e.preventDefault()
     const formData = new FormData()
-    formData.append('image', image.raw)
+    formData.append('file', image.raw)
     const config = { headers: { 'content-type': 'multipart/form-data' } }		
-    let payload ={
-      ...exercise,
-      image: image.raw
-    }
-    console.log(payload)
+    // let payload ={
+    //   ...exercise,
+    //   image: image.raw
+    // }
+    let img=formData
+    console.log(exercise)
     //await uploadToBackend('endpoint', {image: image.raw}, config)
+    postExercise(exercise,img)
   }
   const submit = e =>{
     alert(JSON.stringify(exercise))
