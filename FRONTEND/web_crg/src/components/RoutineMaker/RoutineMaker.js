@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import initialData from './testdata'
 import Column from './Column/Column'
+import ListExercises from '../ListExercises/ListExercises'
 import '@atlaskit/css-reset'
 import {DragDropContext} from 'react-beautiful-dnd'
 import styled from 'styled-components'
+import {getExercises}from '../../utils/api'
 
 const Calendar = styled.div`
 display: flex;
@@ -12,7 +14,15 @@ display: flex;
 export default class RoutineMaker extends Component {
     state=initialData
     componentDidMount() {
-        console.log(initialData);
+        
+        getExercises().then(response => {
+            console.log("la respuesta es la siguiente: "+response)
+            this.setState({
+                ...this.state,
+                exercises:response.data.exercises
+            },()=>{console.log("Asi quedo el estado "+ JSON.stringify(this.state.exercises))})
+    
+        }) 
     }
     onDragEnd=result=>{
         console.log(result)
@@ -72,21 +82,22 @@ export default class RoutineMaker extends Component {
             }
         }
         this.setState(newState)
-        
-
     }
      
     render() {
         return(
             <DragDropContext
                 onDragEnd={this.onDragEnd}
-      
             >
+                {this.state.exercises
+                ?<ListExercises key={this.state.columns['set'].id} column={this.state.columns['set']} exercises={this.state.exercises}/>
+                : null
+                }
                 <Calendar>
                     {this.state.columnOrder.map((columnId)=>{
                         const column = this.state.columns[columnId]
                         const exercises = column.exercisesIds.map(exId=>this.state.exercises.find(exercise => {return exercise._id == exId}))
-
+                        
                         return <Column key={column.id} column={column} exercises={exercises}/>
                     })}
                 </Calendar>

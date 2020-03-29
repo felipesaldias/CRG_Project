@@ -39,7 +39,8 @@ export default class Column extends Component {
                         {provided.placeholder}
                     </ExerciseList>
                 )}
-            </Droppable>      
+            </Droppable>
+             
         </Container>
         )
 
