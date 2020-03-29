@@ -9,6 +9,9 @@ const Container = styled.div`
     border-radius: 2px;
     min-height: 100px;
     width: 200px;
+
+    display: flex;
+    flex-direction: column;
 `;
 const Title = styled.h3`
     paddidng: 8px;
@@ -16,6 +19,7 @@ const Title = styled.h3`
 const ExerciseList = styled.div`
     paddidng: 8px;
     background-color: ${props=>(props.isDraggingOver ? 'skyblue':'white')};
+    flex-grow: 1;
 `;
 
 export default class Column extends Component {
