@@ -29,7 +29,7 @@ const testdata={
         'monday': {
             id: "monday",
             title: "Lunes",
-            exercisesIds:[]
+            exercisesIds:["5e7ec9f4350e24401abbe203","5e7edba0350e24401abbe205","5e7edafd350e24401abbe204"]
         },
         'tuesday': {
             id: "tuesday",

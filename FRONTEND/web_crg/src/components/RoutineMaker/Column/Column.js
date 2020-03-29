@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Exercise from '../../Exercise/Exercise'
+import {Droppable} from 'react-beautiful-dnd'
 
 const Container = styled.div`
     margin: 8px;
@@ -13,6 +15,7 @@ const Title = styled.h3`
 `;
 const ExerciseList = styled.div`
     paddidng: 8px;
+    background-color: ${props=>(props.isDraggingOver ? 'skyblue':'white')};
 `;
 
 export default class Column extends Component {
@@ -20,11 +23,23 @@ export default class Column extends Component {
         return(
 
         <Container>
-        <Title>{this.props.column.title}</Title>
-        <ExerciseList>{this.props.exercises.map(exercise=><div>{JSON.stringify(exercise)}</div> )}</ExerciseList>
+            <Title>{this.props.column.title}</Title>
+            <Droppable droppableId={this.props.column.id}>
+                {(provided,snapshot) => (
+                    <ExerciseList
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                        isDraggingOver={snapshot.isDraggingOver}
+                    >
+                        {this.props.exercises.map((exercise,index)=><Exercise key={exercise._id} exercise={exercise} index={index}/>)}
+                        {provided.placeholder}
+                    </ExerciseList>
+                )}
+            </Droppable>      
         </Container>
         )
 
     }
  
 }
+//<div>{JSON.stringify(exercise)}</div>
