@@ -1,0 +1,13 @@
+.div {
+    font-family: Arial, Helvetica, Sans-Serif;
+    border-style: solid;
+    height: 280px;
+    width: 230px ;
+    draggable: true;
+}
+.img {
+    font-family: Arial, Helvetica, Sans-Serif;
+    border-style: solid;
+    width: 220px ;
+    height:200px;
+}

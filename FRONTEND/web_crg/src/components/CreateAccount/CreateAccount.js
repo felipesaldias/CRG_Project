@@ -27,7 +27,6 @@ class CreateAccount extends Component {
     }
     const {name, rut, pass, email,   phone, type} =this.state;
     const submit = e =>{
-
       e.preventDefault(); 
         //axios.get('https://pokeapi.co/api/v2/pokemon/ditto/').then(result =>{console.log(result.data.id)}).catch(console.log);
         //axios.get('http://localhost:8001').then(result =>{console.log(result.data)}).catch(console.log);

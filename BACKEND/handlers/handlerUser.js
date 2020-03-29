@@ -1,4 +1,8 @@
 let User = require('../models/user');
+let Exercise = require('../models/exercise');
+//let Routine = require('../models/routie');
+const fs= require('fs')
+
 
 module.exports = class HandlerUser {
 
@@ -103,6 +107,39 @@ module.exports = class HandlerUser {
             }
             // mongodb: { deleted: true, name: 'Fluffy', _id: '53da93b1...' }
         })
+      }
+      loadpdf (req, res){
+
+        fs.writeFile(`./files/pdf/${req.params.id}.pdf`,req.file.buffer,{encode:'binary'},()=>{
+          console.log("TU ARCHIVO SE GUARDO ")
+        })
+
+        User.findOneAndUpdate({ _id: req.params.id },{pdf: true},function (err,result){
+          if(result){
+            res.json({
+              success: true,
+              message: "se guardo el pdf en el usuario"
+            });
+          }
+          else{
+            res.status(403).send({
+                msg: "su pdf no se pudo guardar el pdf"
+            });
+          }
+        });
+      }
+
+      getpdf (req, res){
+        console.log("el usuario que esta accediendo al getpdf es "+ req.params.id)
+        var file = fs.createReadStream(`./files/pdf/${req.params.id}.pdf`);
+        file.pipe(res);
+
+      }
+      setexercise(req,res){
+        var exercise = new Exercise();
+        var params = req.body;
+        console.log(params);
+      
       }
   }
   

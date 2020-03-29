@@ -4,10 +4,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var RoutineSchema = Schema({
+    owner: {type: Schema.Types.ObjectId, ref: 'User'},
     date: Date,
-    ejercicios: String,
-    owner: {type: Schema.Types.ObjectId, ref: 'User'}
-
+    exercise: [[{pos: Number,exercise: {type: Schema.Types.ObjectId, ref: 'Excercise'},rep: Number,sets: Number}]]
 });
 
 module.exports = mongoose.model('routine',RoutineSchema);
