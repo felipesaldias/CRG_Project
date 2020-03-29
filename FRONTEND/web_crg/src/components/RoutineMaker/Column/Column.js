@@ -21,7 +21,7 @@ export default class Column extends Component {
 
         <Container>
         <Title>{this.props.column.title}</Title>
-        <ExerciseList>Here exercises</ExerciseList>
+        <ExerciseList>{this.props.exercises.map(exercise=><div>{JSON.stringify(exercise)}</div> )}</ExerciseList>
         </Container>
         )
 
