@@ -1,34 +1,31 @@
 import React,{useState} from 'react'
-import {getExercises}from '../../utils/api'
+import './Exercise.css';
 
 
-export default function Exercise() {
+
+
+export default function Exercise(props) {
     var initialState = {
-        name: "",
-        region: "", 
-        group: "" ,
-        image: ""
-    }   
+    name: props.exercise.name,
+    region: props.exercise.region,
+    group: props.exercise.group,
+    image: "http://localhost:8001/exercises/img/"+props.exercise._id+"."+props.exercise.ext
+    }
 
-    const [exercise, handleExercise] = useState(initialState);
-    getExercises().then(response => {
-        handleExercise({
-            ...exercise,
-            name: response.data.exercises[0].name,
-            region: response.data.exercises[0].region,
-            group: response.data.exercises[0].group,
-            image: "http://localhost:8001/exercises/img/"+response.data.exercises[0]._id+".png"
-        }) 
-    })
+    console.log(props)
+//no hardcodear image/, splitear por /
+//guardar extension del png
+//global variable BACKEND_HOST
+    const [exdata, handleExdata] = useState(initialState);
 
     return (
-        <div >
-            {exercise.name}
-            {exercise.region}
-            {exercise.group}
-            <img src={exercise.image}>
-            </img>
+        <div class="div">
+            
+            {exdata.name}<br/>
+            {exdata.region}<br/>
+            {exdata.group}<br/>
+            <img class="img" src={exdata.image}/><br/>
         </div>
             
-    )
-}
+            )
+        }

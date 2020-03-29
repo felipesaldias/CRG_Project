@@ -23,6 +23,7 @@ module.exports = class HandlerExercise {
         exercise.name = params.name;
         exercise.region = params.region;
         exercise.group = params.group;
+        exercise.ext= extension;
         exercise.save((err,data) => {
             console.log(data._id)
             fs.writeFile(`./public/exercises/img/${data._id}.${extension}`,req.file.buffer,{encode:'binary'},()=>{})

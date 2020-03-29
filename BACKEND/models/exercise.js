@@ -8,6 +8,7 @@ var ExerciseSchema = Schema({
     name: String,
     region: String,
     group: String,
+    ext: String,
     
 });
 

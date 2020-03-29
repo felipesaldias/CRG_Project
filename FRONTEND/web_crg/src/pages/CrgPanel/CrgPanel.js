@@ -13,7 +13,7 @@ import UploadPdf from '../../components/UploadPdf/UploadPdf';
 import Calendar from '../../components/Calendar/Calendar';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import Exercise from '../../components/Exercise/Exercise';
+import ListExercises from '../../components/ListExercises/ListExercises';
 
 import { Link,BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Fragment } from 'react';
@@ -48,7 +48,7 @@ const CrgPanel = props => {
               <Route exact path ="/crg/panel/user/loadpdf" component={UploadPdf}/>
               <Route exact path ="/crg/panel/user/calendar" component={Calendar}/>
               <Route exact path ="/crg/panel/addexercise" component={CreateExercise}/>
-              <Route exact path ="/crg/panel/exercise" component= {Exercise}/>
+              <Route exact path ="/crg/panel/exercises" component= {ListExercises}/>
             </Switch>
           </div> 
         <Footer></Footer>    
