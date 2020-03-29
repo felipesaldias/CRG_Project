@@ -28,7 +28,7 @@ const HomePanel = () => {
           <div class="row d-flex justify-content-center">
             <div class="col-xs-6 col-md-3">
                 <button type="button" class="btn btn-default btn-lg">
-                    <Link to='/crg/panel/user/createroutine'>Crear una Rutina</Link>
+                    <Link to='/crg/panel/user/routinemaker'>Crear una Rutina</Link>
                 </button>
             </div>
             <div class="col-xs-6 col-md-3">

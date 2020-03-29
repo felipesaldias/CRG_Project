@@ -8,7 +8,7 @@ import CreateAccount from '../../components/CreateAccount';
 import CreateExercise from '../../components/CreateExercise/CreateExercise';
 import EditUser from '../../components/EditUser/EditUser';
 import HomePanel from '../../components/HomePanel/HomePanel';
-import CreateRoutine from '../../components/CreateRoutine/CreateRoutine';
+import RoutineMaker from '../../components/RoutineMaker/RoutineMaker';
 import UploadPdf from '../../components/UploadPdf/UploadPdf';
 import Calendar from '../../components/Calendar/Calendar';
 import Header from '../../components/Header/Header';
@@ -44,7 +44,7 @@ const CrgPanel = props => {
               <Route exact path ="/crg/panel/newaccount" component={CreateAccount} /> 
               <Route exact path ="/crg/panel/user" component={UserList} />
               <Route exact path ="/crg/panel/user/edit" component={EditUser} /> 
-              <Route exact path ="/crg/panel/user/createroutine" component={CreateRoutine}/>
+              <Route exact path ="/crg/panel/user/routinemaker" component={RoutineMaker}/>
               <Route exact path ="/crg/panel/user/loadpdf" component={UploadPdf}/>
               <Route exact path ="/crg/panel/user/calendar" component={Calendar}/>
               <Route exact path ="/crg/panel/addexercise" component={CreateExercise}/>
