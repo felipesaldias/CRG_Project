@@ -6,6 +6,7 @@ import '@atlaskit/css-reset'
 import {DragDropContext} from 'react-beautiful-dnd'
 import styled from 'styled-components'
 import {getExercises}from '../../utils/api'
+import { v4 as uuidv4 } from 'uuid'
 
 const Calendar = styled.div`
 display: flex;
@@ -19,10 +20,26 @@ export default class RoutineMaker extends Component {
             console.log("la respuesta es la siguiente: "+response)
             this.setState({
                 ...this.state,
-                exercises:response.data.exercises
+                exercises:response.data.exercises,
+                oncalendar:{}
             },()=>{console.log("Asi quedo el estado "+ JSON.stringify(this.state.exercises))})
     
         }) 
+        
+    }
+    addExercise=(key,exerciseId)=>{
+        let statephoto=this.state
+        console.log("En addExercise")
+        this.setState({
+            ...this.state,
+            oncalendar: {
+                ...this.state.oncalendar,
+                [key]:exerciseId
+            }
+        })
+    }
+    deHash=(uuid)=>{
+        return this.state.oncalendar[uuid]
     }
     onDragEnd=result=>{
         console.log(result)
@@ -60,7 +77,43 @@ export default class RoutineMaker extends Component {
             this.setState(newState)
             return
         }
-        // from one column to another
+        //from set
+        if(start === this.state.columns['set']){
+            const finishExercisesIds = Array.from(finish.exercisesIds)
+            //generar uuid y mandar a tabla hash 
+            //la funcion utilizara la tabla hash https://www.npmjs.com/package/simple-hashtable
+            let key  = uuidv4()//generar key con uuid
+            console.log("vamos a insertar el exercise")
+            //this.addExercise(key,draggableId)
+            this.setState({
+                ...this.state,
+                oncalendar: {
+                    ...this.state.oncalendar,
+                    [key]:draggableId
+                }
+            },()=>
+            {
+                finishExercisesIds.splice(destination.index,0,key)
+                const newFinish = {
+                    ...finish,
+                    exercisesIds:finishExercisesIds
+                }
+                const newState = {
+                    ...this.state,
+                    columns:{
+                        ...this.state.columns,
+                        [newFinish.id]:newFinish
+                    }
+                }
+                this.setState(newState)
+
+            })
+
+        return
+            
+        }
+        
+        // from one column to another in side of calendar
         const startExercisesIds = Array.from(start.exercisesIds)
         startExercisesIds.splice(source.index, 1);
         const newStart = {
@@ -96,9 +149,9 @@ export default class RoutineMaker extends Component {
                 <Calendar>
                     {this.state.columnOrder.map((columnId)=>{
                         const column = this.state.columns[columnId]
-                        const exercises = column.exercisesIds.map(exId=>this.state.exercises.find(exercise => {return exercise._id == exId}))
+                        const exercises = column.exercisesIds.map(exId=>this.state.exercises.find(exercise => {return exercise._id == this.deHash(exId)}))
                         
-                        return <Column key={column.id} column={column} exercises={exercises}/>
+                        return <Column key={column.id} column={column} exercises={exercises} ids={column.exercisesIds}/>
                     })}
                 </Calendar>
             </DragDropContext>

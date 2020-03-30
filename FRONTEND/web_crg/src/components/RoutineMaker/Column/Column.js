@@ -47,4 +47,7 @@ export default class Column extends Component {
     }
  
 }
+//cambiar las keys
+//using uuid and hash table for no repeat draggablesId
+//cambiar los draggables ids
 //<div>{JSON.stringify(exercise)}</div>

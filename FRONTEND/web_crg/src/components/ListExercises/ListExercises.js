@@ -35,10 +35,12 @@ const ListExercises = (props) => {
                     <ExercisesList
                         ref={provided.innerRef}
                         {...provided.droppableProps}
+                        isDropDisabled={true}
                     >
                         {exercises.map((exercise,index) => <Exercise key={exercise._id} exercise={exercise} index={index}  />)}
 
                         {provided.placeholder}
+                        
                     </ExercisesList>
 
                 )}
