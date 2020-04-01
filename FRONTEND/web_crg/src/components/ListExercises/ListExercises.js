@@ -18,7 +18,7 @@ const Title = styled.h2`
     paddidng: 8px;
 `;
 
-const ExercisesList= styled.div`
+const ExercisesListDiv= styled.div`
 
 `
 
@@ -32,16 +32,16 @@ const ListExercises = (props) => {
             <Droppable droppableId={props.column.id}>
                 {(provided,snapshot) => (
 
-                    <ExercisesList
+                    <ExercisesListDiv
                         ref={provided.innerRef}
                         {...provided.droppableProps}
                         isDropDisabled={true}
                     >
-                        {exercises.map((exercise,index) => <Exercise key={exercise._id} exercise={exercise} index={index}  />)}
+                        {exercises.map((exercise,index) => <Exercise key={exercise._id} exercise={exercise} index={index} dragid={exercise._id} />)}
 
                         {provided.placeholder}
                         
-                    </ExercisesList>
+                    </ExercisesListDiv>
 
                 )}
             </Droppable>

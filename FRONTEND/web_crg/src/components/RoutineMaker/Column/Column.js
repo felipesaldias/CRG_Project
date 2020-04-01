@@ -35,7 +35,7 @@ export default class Column extends Component {
                         {...provided.droppableProps}
                         isDraggingOver={snapshot.isDraggingOver}
                     >
-                        {this.props.exercises.map((exercise,index)=><Exercise key={exercise._id} exercise={exercise} index={index}/>)}
+                        {this.props.exercises.map((exercise,index)=><Exercise key={this.props.column.exercisesIds[index]} exercise={exercise} index={index} dragid={this.props.column.exercisesIds[index]}/>)}
                         {provided.placeholder}
                     </ExerciseList>
                 )}

@@ -33,7 +33,7 @@ export default function Exercise(props) {
     const [exdata, handleExdata] = useState(initialState);
 
     return (
-        <Draggable draggableId={props.exercise._id} index={props.index}>
+        <Draggable draggableId={props.dragid} index={props.index}>
             {(provided,snapshot)=>(
                 <Container 
                     {...provided.draggableProps}

@@ -148,7 +148,7 @@ export default class RoutineMaker extends Component {
                 }
                 <Calendar>
                     {this.state.columnOrder.map((columnId)=>{
-                        const column = this.state.columns[columnId]
+                        var column = this.state.columns[columnId]
                         const exercises = column.exercisesIds.map(exId=>this.state.exercises.find(exercise => {return exercise._id == this.deHash(exId)}))
                         
                         return <Column key={column.id} column={column} exercises={exercises} ids={column.exercisesIds}/>
