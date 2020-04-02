@@ -39,8 +39,39 @@ export default class RoutineMaker extends Component {
         })
     }
     deHash=(uuid)=>{
-        return this.state.oncalendar[uuid]
+        return this.state.oncalendar[uuid].exercise
     }
+    changeReps=(key,cant)=>{
+        if (this.state.oncalendar[key].reps <=1 && cant == -1){
+            return
+        }
+        this.setState({
+            ...this.state,
+            oncalendar: {
+                ...this.state.oncalendar,
+                [key]:{
+                    ...this.state.oncalendar[key],
+                    reps: this.state.oncalendar[key].reps + cant
+                    }
+            }
+        })
+    }
+    changeSets=(key,cant)=>{
+        if (this.state.oncalendar[key].sets <=1 && cant == -1){
+            return
+        }
+        this.setState({
+            ...this.state,
+            oncalendar: {
+                ...this.state.oncalendar,
+                [key]:{
+                    ...this.state.oncalendar[key],
+                    sets: this.state.oncalendar[key].sets + cant
+                    }
+            }
+        })
+    }
+    
     onDragEnd=result=>{
         console.log(result)
         const {destination, source, draggableId}=result
@@ -84,12 +115,16 @@ export default class RoutineMaker extends Component {
             //la funcion utilizara la tabla hash https://www.npmjs.com/package/simple-hashtable
             let key  = uuidv4()//generar key con uuid
             console.log("vamos a insertar el exercise")
-            //this.addExercise(key,draggableId)
+            //this.addExercise(key,draggableId).then
             this.setState({
                 ...this.state,
                 oncalendar: {
                     ...this.state.oncalendar,
-                    [key]:draggableId
+                    [key]:{
+                        exercise: draggableId,
+                        reps: 1,
+                        sets: 1
+                        }
                 }
             },()=>
             {
@@ -151,7 +186,7 @@ export default class RoutineMaker extends Component {
                         var column = this.state.columns[columnId]
                         const exercises = column.exercisesIds.map(exId=>this.state.exercises.find(exercise => {return exercise._id == this.deHash(exId)}))
                         
-                        return <Column key={column.id} column={column} exercises={exercises} ids={column.exercisesIds}/>
+                        return <Column oncalendar={this.state.oncalendar} key={column.id} column={column} exercises={exercises} changereps={this.changeReps} changesets={this.changeSets}/>
                     })}
                 </Calendar>
             </DragDropContext>

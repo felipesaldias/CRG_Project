@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Exercise from '../../Exercise/Exercise'
 import {Droppable} from 'react-beautiful-dnd'
+import ExerciseOnCalendar from '../../ExerciseOnCalendar/ExerciseOnCalendar';
 
 const Container = styled.div`
     margin: 8px;
@@ -35,7 +35,7 @@ export default class Column extends Component {
                         {...provided.droppableProps}
                         isDraggingOver={snapshot.isDraggingOver}
                     >
-                        {this.props.exercises.map((exercise,index)=><Exercise key={this.props.column.exercisesIds[index]} exercise={exercise} index={index} dragid={this.props.column.exercisesIds[index]}/>)}
+                        {this.props.exercises.map((exercise,index)=><ExerciseOnCalendar info={this.props.oncalendar[this.props.column.exercisesIds[index]]} changereps={this.props.changereps} changesets={this.props.changesets} key={this.props.column.exercisesIds[index]} exercise={exercise} index={index} dragid={this.props.column.exercisesIds[index]}/>)}
                         {provided.placeholder}
                     </ExerciseList>
                 )}
