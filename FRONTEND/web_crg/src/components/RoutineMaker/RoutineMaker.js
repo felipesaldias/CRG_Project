@@ -12,6 +12,10 @@ const Calendar = styled.div`
 display: flex;
 `
 
+const CreateRoutineButton = styled.div`
+display: flex;
+`
+
 export default class RoutineMaker extends Component {
     state=initialData
     componentDidMount() {
@@ -71,7 +75,24 @@ export default class RoutineMaker extends Component {
             }
         })
     }
-    
+    submitRoutine =()=>{
+        var routine = this.state.columnOrder.map((columnId)=>{
+            console.log("routin")
+            let days = this.state.columns[columnId].exercisesIds.map((ex)=>{
+                let exercise_payload={
+                    exercise: this.deHash(ex),
+                    reps: this.state.oncalendar[ex].reps,
+                    sets: this.state.oncalendar[ex].sets
+                }
+                return exercise_payload
+            })
+            return days
+        })
+        console.log(routine)
+
+        
+       
+    }
     onDragEnd=result=>{
         console.log(result)
         const {destination, source, draggableId}=result
@@ -189,6 +210,11 @@ export default class RoutineMaker extends Component {
                         return <Column oncalendar={this.state.oncalendar} key={column.id} column={column} exercises={exercises} changereps={this.changeReps} changesets={this.changeSets}/>
                     })}
                 </Calendar>
+                <CreateRoutineButton>
+                    <button onClick ={this.submitRoutine}>
+                        Crear Rutina
+                    </button>
+                </CreateRoutineButton>
             </DragDropContext>
         )
     }
