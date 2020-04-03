@@ -5,7 +5,7 @@ import ListExercises from '../ListExercises/ListExercises'
 import '@atlaskit/css-reset'
 import {DragDropContext} from 'react-beautiful-dnd'
 import styled from 'styled-components'
-import {getExercises}from '../../utils/api'
+import {getExercises, postRoutines}from '../../utils/api'
 import { v4 as uuidv4 } from 'uuid'
 
 const Calendar = styled.div`
@@ -88,6 +88,11 @@ export default class RoutineMaker extends Component {
             })
             return days
         })
+        let payload={
+            date:1,
+            routine:routine  
+        }
+        postRoutines(1,payload)
         console.log(routine)
 
         
