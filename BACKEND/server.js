@@ -54,6 +54,7 @@ function main () {
   app.get('/login',middleware.checkToken,handlers.index); // trae el usuario del token
   app.post('/users', handlerUser.create);
   app.get('/users',middleware.checkToken,middleware.checkStaff,handlerUser.index);
+  app.get('/users/routine', handlerRoutine.index);
   app.get('/users/:id', handlerUser.show);
   app.put('/users/:id',handlerUser.update);
   app.delete('/users/:id',handlerUser.delete);

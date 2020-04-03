@@ -2,10 +2,13 @@ var mongoose = require('mongoose')
 let Routine = require('../models/routine');
 let Exercise = require('../models/exercise');
 
+
 module.exports = class HandlerRoutine{
     constructor() {
         console.log('Nueva instancia Routine');
+        
     }
+    
     create(req,res){
         var routine = new Routine();
         
@@ -92,7 +95,74 @@ module.exports = class HandlerRoutine{
             msg: "success"
         });
     }
+    
+
     index(req,res){
+        async function run(){
+            
+                let count;
+                let arr = [];
+            
+                if (!(count = await Routine.find())) {
+                  return;
+                }
+                var cantidades = {
+                    monday: 0,
+                    tuesday: 0,
+                    wednesday: 0,
+                    thursday: 0,
+                    friday: 0,
+                    saturday:0 ,
+                    sunday: 0
+                }
+                //console.log(cantidades)
+                for (var i in count ) { // cada rutina tenemos su indice 
+                    for (var j in cantidades){ // cada dia tenemos su indice
+                        if(count[i].routine[j].length > cantidades[j] ){ //contamos la cantidade de ejrcicios del lunes
+                            cantidades[j] = count[i].routine[j].length
+                        }
+                    }
+                }
+                for(var j in cantidades){
+                    for(var i = 0; i < cantidades[j]; i++){
+                        arr.push(`routine.${j}.${i}.exercise `);
+                    }
+                }
+                console.log(arr)
+
+                //console.log(cantidades)
+                //console.log("count : \n")
+                //console.log(count)
+                // for (let i = 0; i < count.translation.length; i++) {
+                //   arr.push(`translation.${i}.idVideo `); // Don't delete the last space !
+                // }
+                // return await Translation.findById(idTranslation).populate({
+                //   path: arr.join(''),
+                //   model: 'TranslationVideo'
+                // });
+            
+        }
+        run()
+        Routine.find().populate({path: 'routine.monday.0.exercise routine.tuesday.0.exercise',model: 'exercise'}).exec((err,routine)=>{
+            
+            //console.log(JSON.stringify(routine))
+        })
+        //console.log(r)
+
+
+       
+        // const routine = Routine.find().populate('routine',{path: 'exercise'}).exec(function (err, routine) {
+        //     if (err) return handleError(err);
+        //     res.status(200).send({
+        //         msg: "success",
+        //         data: routine
+        //     })
+            
+            
+        //  })
+        //populate({ path: 'nested', populate: { path: 'deepNested' }})
+    }
+    index2(req,res){
        
         
         
