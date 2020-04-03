@@ -115,10 +115,10 @@ module.exports = class HandlerRoutine{
                     saturday:0 ,
                     sunday: 0
                 }
-                //console.log(cantidades)
-                for (var i in count ) { // cada rutina tenemos su indice 
-                    for (var j in cantidades){ // cada dia tenemos su indice
-                        if(count[i].routine[j].length > cantidades[j] ){ //contamos la cantidade de ejrcicios del lunes
+                
+                for (var i in count ) {
+                    for (var j in cantidades){ 
+                        if(count[i].routine[j].length > cantidades[j] ){ 
                             cantidades[j] = count[i].routine[j].length
                         }
                     }
@@ -128,39 +128,15 @@ module.exports = class HandlerRoutine{
                         arr.push(`routine.${j}.${i}.exercise `);
                     }
                 }
-                console.log(arr)
-
-                //console.log(cantidades)
-                //console.log("count : \n")
-                //console.log(count)
-                // for (let i = 0; i < count.translation.length; i++) {
-                //   arr.push(`translation.${i}.idVideo `); // Don't delete the last space !
-                // }
-                // return await Translation.findById(idTranslation).populate({
-                //   path: arr.join(''),
-                //   model: 'TranslationVideo'
-                // });
+                //console.log(arr)
+                Routine.find().populate({path: arr.join(''),model: 'exercise'}).exec((err,routines)=>{
+                    //console.log(JSON.stringify(routines))
+                    res.status(200).send(routines)
+                })
+                
             
         }
         run()
-        Routine.find().populate({path: 'routine.monday.0.exercise routine.tuesday.0.exercise',model: 'exercise'}).exec((err,routine)=>{
-            
-            //console.log(JSON.stringify(routine))
-        })
-        //console.log(r)
-
-
-       
-        // const routine = Routine.find().populate('routine',{path: 'exercise'}).exec(function (err, routine) {
-        //     if (err) return handleError(err);
-        //     res.status(200).send({
-        //         msg: "success",
-        //         data: routine
-        //     })
-            
-            
-        //  })
-        //populate({ path: 'nested', populate: { path: 'deepNested' }})
     }
     index2(req,res){
        
