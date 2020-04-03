@@ -121,7 +121,7 @@ export default class RoutineMaker extends Component {
             date:1,
             routine: payload_routine  
         }
-        postRoutines(1,payload)
+        postRoutines("5e7adb7b62c7b40c82e0d88f",payload)
         console.log(routine)
 
         
