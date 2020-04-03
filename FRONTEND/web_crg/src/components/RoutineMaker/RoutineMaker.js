@@ -98,6 +98,35 @@ export default class RoutineMaker extends Component {
         
        
     }
+    submitRoutine2 =()=>{
+        var payload_routine ={}
+        var routine = this.state.columnOrder.map((columnId)=>{
+            console.log("routin")
+            let days = this.state.columns[columnId].exercisesIds.map((ex)=>{
+                let exercise_payload={
+                    exercise: this.deHash(ex),
+                    reps: this.state.oncalendar[ex].reps,
+                    sets: this.state.oncalendar[ex].sets
+                }
+                return exercise_payload
+            })
+            
+            payload_routine={
+                ...payload_routine,
+                [columnId]: days
+            }
+            return days
+        })
+        let payload={
+            date:1,
+            routine: payload_routine  
+        }
+        postRoutines(1,payload)
+        console.log(routine)
+
+        
+       
+    }
     onDragEnd=result=>{
         console.log(result)
         const {destination, source, draggableId}=result
@@ -216,7 +245,7 @@ export default class RoutineMaker extends Component {
                     })}
                 </Calendar>
                 <CreateRoutineButton>
-                    <button onClick ={this.submitRoutine}>
+                    <button onClick ={this.submitRoutine2}>
                         Crear Rutina
                     </button>
                 </CreateRoutineButton>
