@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var HandlerGenerator = require('./handlers/handlers');
 var HandlerUser = require('./handlers/handlerUser');
 var HandlerExercise = require('./handlers/handlerExercise');
+var HandlerRoutine = require('./handlers/handlerRoutine');
 var cors = require('cors');
 
 var fileUpload = require('express-fileupload');
@@ -37,6 +38,7 @@ function main () {
   let handlers = new HandlerGenerator();
   let handlerUser = new HandlerUser();
   let handlerExercise = new HandlerExercise();
+  let handlerRoutine = new HandlerRoutine();
   const port = config.port || 8000;
 
   app.use(bodyParser.urlencoded({ // Middleware
@@ -52,6 +54,7 @@ function main () {
   app.get('/login',middleware.checkToken,handlers.index); // trae el usuario del token
   app.post('/users', handlerUser.create);
   app.get('/users',middleware.checkToken,middleware.checkStaff,handlerUser.index);
+  app.get('/users/:id/routine', handlerRoutine.index);
   app.get('/users/:id', handlerUser.show);
   app.put('/users/:id',handlerUser.update);
   app.delete('/users/:id',handlerUser.delete);
@@ -59,7 +62,7 @@ function main () {
   app.get('/users/:id/pdf',handlerUser.getpdf)
   app.post('/exercises',upload.single("file"), handlerExercise.create)
   app.get('/exercises',handlerExercise.index)
-  //app.post('/exercises', handlerExercise.create);
+  app.post('/users/:id/routine', handlerRoutine.create);
   //app.get('/exercises', handlerExercise.index);
   //app.get('/exercises/:id', handlerExercise.show);
   //app.post('/routine', handlerRoutine.create);

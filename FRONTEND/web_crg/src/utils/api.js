@@ -16,3 +16,4 @@ img,{headers: {
     'Group' : `${data.group}`
 }},);
 export const getExercises = () => clienteAxios.get('/exercises');
+export const postRoutines = (id,data) => clienteAxios.post(`/users/${id}/routine`,data);
