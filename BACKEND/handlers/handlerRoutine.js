@@ -13,7 +13,7 @@ module.exports = class HandlerRoutine{
         var routine = new Routine();
         var user = req.params.id
         routine.owner = user
-        
+        routine.date = req.body.date
         routine.routine= req.body.routine
         console.log(JSON.stringify(routine))
         routine.save()

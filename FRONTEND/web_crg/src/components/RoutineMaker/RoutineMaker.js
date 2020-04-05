@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import initialData from './testdata'
 import Column from './Column/Column'
 import ListExercises from '../ListExercises/ListExercises'
+import WeekPicker from '../WeekPicker/WeekPicker'
 import '@atlaskit/css-reset'
 import {DragDropContext} from 'react-beautiful-dnd'
 import styled from 'styled-components'
 import {getExercises, postRoutines}from '../../utils/api'
 import { v4 as uuidv4 } from 'uuid'
+import moment from 'moment'
 
 const Calendar = styled.div`
 display: flex;
@@ -25,7 +27,8 @@ export default class RoutineMaker extends Component {
             this.setState({
                 ...this.state,
                 exercises:response.data.exercises,
-                oncalendar:{}
+                oncalendar:{},
+                date:[{},{['_d']: moment().startOf('isoweek') }]
             },()=>{console.log("Asi quedo el estado "+ JSON.stringify(this.state.exercises))})
     
         }) 
@@ -75,30 +78,15 @@ export default class RoutineMaker extends Component {
             }
         })
     }
-    submitRoutine =()=>{
-        var routine = this.state.columnOrder.map((columnId)=>{
-            console.log("routin")
-            let days = this.state.columns[columnId].exercisesIds.map((ex)=>{
-                let exercise_payload={
-                    exercise: this.deHash(ex),
-                    reps: this.state.oncalendar[ex].reps,
-                    sets: this.state.oncalendar[ex].sets
-                }
-                return exercise_payload
-            })
-            return days
-        })
-        let payload={
-            date:1,
-            routine:routine  
-        }
-        postRoutines(1,payload)
-        console.log(routine)
-
+    setDate=(date)=>{
         
-       
+        this.setState({
+            ...this.state,
+           date: date
+        })
     }
-    submitRoutine2 =()=>{
+    
+    submitRoutine =()=>{
         var payload_routine ={}
         var routine = this.state.columnOrder.map((columnId)=>{
             console.log("routin")
@@ -118,11 +106,11 @@ export default class RoutineMaker extends Component {
             return days
         })
         let payload={
-            date:1,
+            date: this.state.date[1]._d,
             routine: payload_routine  
         }
         postRoutines("5e7adb7b62c7b40c82e0d88f",payload)
-        console.log(routine)
+        //console.log(routine)
 
         
        
@@ -231,7 +219,8 @@ export default class RoutineMaker extends Component {
         return(
             <DragDropContext
                 onDragEnd={this.onDragEnd}
-            >
+            >   
+                <WeekPicker setdate={this.setDate}/>
                 {this.state.exercises
                 ?<ListExercises key={this.state.columns['set'].id} column={this.state.columns['set']} exercises={this.state.exercises}/>
                 : null
@@ -245,7 +234,7 @@ export default class RoutineMaker extends Component {
                     })}
                 </Calendar>
                 <CreateRoutineButton>
-                    <button onClick ={this.submitRoutine2}>
+                    <button onClick ={this.submitRoutine}>
                         Crear Rutina
                     </button>
                 </CreateRoutineButton>
