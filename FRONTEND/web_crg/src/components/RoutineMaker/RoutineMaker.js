@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import initialData from './testdata'
+import PanelContext from '../../context/panel/panelContext';
 import Column from './Column/Column'
 import ListExercises from '../ListExercises/ListExercises'
 import WeekPicker from '../WeekPicker/WeekPicker'
@@ -20,8 +21,33 @@ display: flex;
 
 export default class RoutineMaker extends Component {
     state=initialData
+    static contextType = PanelContext
+
+    checkFocus=()=>{
+        console.log("testttttt")
+        console.log(this.context.focususer)
+        if(!this.context.focususer){
+            this.props.history.push(
+                {
+                  pathname: '/crg/panel/user',
+                  search: '?from=routinemaker',
+                  //state: { detail: response.data }
+                })
+        }
+        //return this.state.oncalendar[uuid].exercise
+    }
     componentDidMount() {
-        
+        //this.checkFocus()
+        if(!this.context.focususer){
+            alert("Debe seleccionar un usuario sobre el cual trabajar, será redirigido")
+            this.props.history.push(
+                {
+                  pathname: '/crg/panel/user',
+                  search: '?from=routinemaker',
+                  //state: { detail: response.data }
+                })
+                return
+        }
         getExercises().then(response => {
             console.log("la respuesta es la siguiente: "+response)
             this.setState({

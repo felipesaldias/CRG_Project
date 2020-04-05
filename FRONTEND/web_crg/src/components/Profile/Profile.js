@@ -28,6 +28,7 @@ const Profile = props => {
             {focususer.name}
             <div><Link to='/crg/panel/user/edit'>Editar Informacion</Link></div>
             <div><Link to='/crg/panel/user/loadpdf'>Subir Pdf</Link></div>
+            <div><Link to='/crg/panel/user/routinemaker'>Routine</Link></div>
             
             <button type="button" class="btn btn-success btn-block" onClick={onClick}>Descargar pdf</button>
                            
