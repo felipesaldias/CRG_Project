@@ -1,5 +1,6 @@
 var mongoose = require('mongoose')
 let Routine = require('../models/routine');
+let User = require('../models/user');
 let Exercise = require('../models/exercise');
 
 
@@ -16,10 +17,23 @@ module.exports = class HandlerRoutine{
         routine.date = req.body.date
         routine.routine= req.body.routine
         console.log(JSON.stringify(routine))
-        routine.save()
-        res.status(200).send({
-            msg: "success"
-        });
+        routine.save((err,doc)=>{
+            console.log("tratando de agregar la rutina al usuario")
+            console.log(doc._id)
+            User.findOneAndUpdate({ _id: user },{ $push: { routines: doc._id } },function (err,result){
+                if(result){
+                    res.status(200).send({
+                        msg: "success"
+                    })
+                }
+                else{
+                  res.status(403).send({
+                      msg: "Falló la creación de la rutina"
+                  });
+                }
+              });
+        })
+        ;
     }
     
     index(req,res){
