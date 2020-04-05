@@ -1,6 +1,6 @@
 *{
-    margin: 0px auto;
-    padding: 0px;
+  margin: 0px auto;
+  padding: 0px;
 }
 
 .titulo > h1{
@@ -15,4 +15,3 @@
 .selector:hover {
   cursor: pointer;
 }
-
