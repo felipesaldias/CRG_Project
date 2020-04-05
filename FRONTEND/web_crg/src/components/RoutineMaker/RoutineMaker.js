@@ -135,7 +135,7 @@ export default class RoutineMaker extends Component {
             date: this.state.date[1]._d,
             routine: payload_routine  
         }
-        postRoutines("5e7adb7b62c7b40c82e0d88f",payload)
+        postRoutines(this.context.focususer._id,payload)
         //console.log(routine)
 
         
