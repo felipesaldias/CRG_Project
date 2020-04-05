@@ -94,7 +94,7 @@ class UserList extends Component {
                 this.props.history.push(`/crg/panel/user/${from}`)
             }
             else{
-                this.props.history.push('/crg/panel/profile')
+                this.props.history.push('/crg/panel/user/profile')
             }
         }
         )
