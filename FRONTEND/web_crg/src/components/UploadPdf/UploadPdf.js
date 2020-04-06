@@ -33,19 +33,36 @@ const UploadPdf = () => {
         });
     }
     return (
-        <div class="container">
-	        <div class="row d-flex justify-content-center">
-	          <div class="col-md-6">
-	              <form method="post" action="#" id="#">
-                      <div class="form-group files">
-                        <label>Upload Your File </label>
-                        <input type="file" name="pdf" onChange={onChangeHandler} class="form-control" multiple=""/>
-                        </div>   
-                  </form>    
-	          </div>
-	        </div>
-            <button type="button" class="btn btn-success btn-block" onClick={onClickHandler}>Upload</button>
-             
+        <div>
+            <div className="container shadow bg-light w-50 mx-auto my-5 p-5">
+                <div className="row justify-content-center">
+                    <div className="titulo col col-12 p-3 mb-4">
+                        <h1 className="text-center text-shadow">Subir Archivo PDF</h1>
+                    </div>
+                    <div className="col col-6 p-0 py-4">
+                        <form method="post" action="#" id="#">
+                            <div className="form-group files m-3">
+                                <input 
+                                    type="file" 
+                                    name="pdf" 
+                                    id="pdf"
+                                    onChange={onChangeHandler} 
+                                    className="form-control" 
+                                    multiple=""
+                                />
+                            </div>   
+                        </form>    
+                    </div>
+                </div>
+                <div className="form-group">
+                    <input
+                        type="submit"
+                        className="btn btn-info d-block mx-auto"
+                        onClick={onClickHandler}
+                        value="Subir PDF"
+                    />
+                </div>
+            </div>
         </div>
     );
 };

@@ -133,7 +133,7 @@ const handleState = e =>{
                         type="submit"
                         className="btn btn-info d-block mx-auto"
                         onClick={handleUpload}
-                        value="Crear ejercicio"
+                        value="Crear Ejercicio"
                     />
                   </div>
               </form>  

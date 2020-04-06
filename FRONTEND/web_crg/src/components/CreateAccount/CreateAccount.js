@@ -148,7 +148,7 @@ class CreateAccount extends Component {
                         type="submit"
                         className="btn btn-info d-block mx-auto"
                         onClick={submit}
-                        value="Crear cuenta"
+                        value="Crear Usuario"
                     />
                 </div>
               </form>
