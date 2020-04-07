@@ -1,0 +1,10 @@
+
+
+.container{
+    width: 100%;
+}
+
+.pagination > li:hover{
+
+    cursor: pointer;
+}

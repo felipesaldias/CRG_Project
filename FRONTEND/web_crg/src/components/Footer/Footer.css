@@ -1,0 +1,42 @@
+.footer-container{
+    background-color: #eee;
+}
+
+.wrap{
+    overflow: hidden;
+}
+
+.border-corner{
+    border: 3px solid #17A2B8;
+    border-radius: 10px;
+    width: 132px;
+    cursor: pointer;
+}
+.border-corner > a{
+    text-decoration: none;
+    font-family: sans-serif;
+    color: #17A2B8;
+}
+
+.border-corner > a:hover{
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+
+.texto{
+    position: absolute;
+    right: 120px;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    
+}
+.wrap div{
+    max-height: 100px;
+}

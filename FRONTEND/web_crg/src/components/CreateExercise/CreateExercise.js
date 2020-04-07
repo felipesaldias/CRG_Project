@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './CreateExercise.css'
 import {postExercise}from '../../utils/api'
 
 export default function CreateExercise() {
@@ -45,21 +46,14 @@ const handleState = e =>{
   }
 
   return (
-    <div class="row d-flex justify-content-center">
-      <div>
-        <h1>Crear ejercicio nuevo</h1>
-        <div className="container" class="col offset-md-3">
-          <div className="row">
-            <form>
-                  <label>Nombre</label>
-                  <input 
-                      type="text"
-                      name="name"
-                      className="u-full-width"
-                      onChange={handleState}
-                      placeholder="Ingrese nombre"
-                      value={name}
-                  />
+    <div>
+      <div className="container shadow bg-light w-50 mx-auto my-5 p-5">
+        <div className="row">
+
+
+            <div className="titulo col col-12 p-3 mb-4">
+              <h1 className="text-center text-shadow">Crear ejercicio nuevo</h1>
+            </div>
 
                   <label>Region Cuerpo</label>
                   <select
@@ -73,46 +67,93 @@ const handleState = e =>{
                     <option value="cardio">Cardio</option>
                   </select> 
 
-                  <label>Grupo Muscular</label>
-                  <select
-                      className="u-full-width"
-                      name="group"
-                      onChange={handleState}
-                      value={group}
-                  >
-                    <option value="neck">Cuello</option>
-                    <option value="shoulders">Hombros</option>
-                    <option value="back">Espalda</option>
-                    <option value="arms">Brazos</option>
-                    <option value="chest">Pecho</option>
-                    <option value="abs">Abdominales</option>
-                    <option value="gluteus">Gluteos</option>
-                    <option value="legs">Piernas</option>
-                    <option value="cardio">Cardio</option>
-                  </select>
-                  <label htmlFor="upload-button">
+
+          <div className="col col-12 p-0 py-4">
+            <form>
+              <div className="form-group">
+                  <div className="input-group">
+                    <div className="input-group-prepend p-0 col-3">
+                      <span className="input-group-text col-11">Nombre</span>
+                    </div>
+                    <input 
+                        type="text"
+                        name="name"
+                        className="form-control col-9"
+                        onChange={handleState}
+                        placeholder="Ingrese nombre"
+                        value={name}
+                    />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <div className="input-group">
+                    <div className="input-group-prepend p-0 col-3">
+                      <span className="input-group-text col-11">Region Cuerpo</span>
+                    </div>
+                    <select
+                        className="form-control col-9"
+                        name="region"
+                        onChange={handleState}
+                        value={region}
+                    >
+                      <option value="upper">Tren superior</option>
+                      <option value="lower">Tren inferior</option>
+                    </select> 
+                  </div>
+                </div>
+                <div className="form-group mb-5">
+                  <div className="input-group">
+                    <div className="input-group-prepend p-0 col-3">
+                      <span className="input-group-text col-11">Grupo Muscular</span>
+                    </div>
+                    <select
+                        className="form-control selector col-9"
+                        name="group"
+                        onChange={handleState}
+                        value={group}
+                    >
+                      <option value="neck">Cuello</option>
+                      <option value="shoulders">Hombros</option>
+                      <option value="back">Espalda</option>
+                      <option value="arms">Brazos</option>
+                      <option value="chest">Pecho</option>
+                      <option value="abs">Abdominales</option>
+                      <option value="gluteus">Gluteos</option>
+                      <option value="legs">Piernas</option>
+                      <option value="cardio">Cardio</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="form-group row shadow border rounded m-0 p-3 mb-5">
+                  <label className="control-label col-6 m-0 px-2" htmlFor="upload-button">
                     {
-                      image.preview ? <img src={ image.preview } width="230" height="200" /> : (
+                      image.preview ? <div className="imagecontainer col m-0 p-0"><img className="col m-0 p-0 rounded" src={ image.preview }/></div> : (
                         <>
-                          <h5 className="text-center">Upload your photo</h5>
+                          <h5 className="titulo text-left">Subir imagen de ejercicio:</h5>
                         </>
                       )
                     }
                   </label>
-                  <input type="file" id="upload-button" style={{ display: 'none' }} onChange={handleChange}/>
-                  <br />
+                  <input 
+                      className="form-control-file align-items-end p-0 col-6" 
+                      type="file" 
+                      id="upload-button"  
+                      onChange={handleChange}
+                  />
+                </div>
 
-                  <button
-                      type="submit"
-                      className="u-full-width button-primary"
-                      onClick={handleUpload}
-                  >Crear cuenta</button>
-              </form>
-            
+                  <div className="form-group">
+                    <input
+                        type="submit"
+                        className="btn btn-info d-block mx-auto"
+                        onClick={handleUpload}
+                        value="Crear Ejercicio"
+                    />
+                  </div>
+              </form>  
           </div>
         </div>
       </div>
-
       
     </div>
   )
