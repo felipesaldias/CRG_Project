@@ -43,7 +43,8 @@ const testdata={
         },
         
     },
-    columnOrder: ['monday','tuesday','wednesday','thursday','friday','saturday','sunday']
+    columnOrder: ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'],
+    date:[]
 
 }
 export default testdata

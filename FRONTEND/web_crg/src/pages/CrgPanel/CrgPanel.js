@@ -40,7 +40,7 @@ const CrgPanel = props => {
           <div>
             <Switch>
               <Route exact path ="/crg/panel/" component={HomePanel}/>
-              <Route exact path ="/crg/panel/profile" component={Profile}/>
+              <Route exact path ="/crg/panel/user/profile" component={Profile}/>
               <Route exact path ="/crg/panel/newaccount" component={CreateAccount} /> 
               <Route exact path ="/crg/panel/user" component={UserList} />
               <Route exact path ="/crg/panel/user/edit" component={EditUser} /> 

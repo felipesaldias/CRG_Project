@@ -27,6 +27,7 @@ const Profile = props => {
       });
     }
     return(
+
       <div class="container">
       <div class="row justify-content-center align-items-center vh-90 py-5">
       
@@ -69,6 +70,7 @@ const Profile = props => {
                 </div>
               </div>
             </div>
+
             
           </div>
         </div>

@@ -17,3 +17,4 @@ img,{headers: {
 }},);
 export const getExercises = () => clienteAxios.get('/exercises');
 export const postRoutines = (id,data) => clienteAxios.post(`/users/${id}/routine`,data);
+export const getRoutines = (id) => clienteAxios.get(`/users/${id}/routine`);

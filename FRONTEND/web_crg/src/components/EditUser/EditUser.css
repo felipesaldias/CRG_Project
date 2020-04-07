@@ -1,15 +1,10 @@
 *{
-    margin: 0px auto;
-    padding: 0px;
-}
-
-.container-user{
-  width: 50%;
+  margin: 0px auto;
+  padding: 0px;
 }
 
 .titulo > h1{
   font-family: sans-serif;
-  text-shadow: 1px 1px 1px black;
 }
 
 .input-group-text {
@@ -20,4 +15,3 @@
 .selector:hover {
   cursor: pointer;
 }
-

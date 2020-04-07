@@ -39,84 +39,119 @@ class CreateAccount extends Component {
     }
     return (
       <div>
-        <h1>Crear cuenta de usuario</h1>
-
-        <div className="container">
+        <div className="container container-user shadow bg-light mx-auto my-5 p-5">
           <div className="row">
-            <div className="one-half column">
-            <form
-              >
-                  <label>Nombre</label>
-                  <input 
-                      type="text"
-                      name="name"
-                      className="u-full-width"
-                      onChange={handleState}
-                      placeholder="Ingrese nombre"
-                      value={name}
-                  />
 
-                  <label>Rut</label>
-                  <input 
-                      type="number"
-                      name="rut"
-                      className="u-full-width"
-                      onChange={handleState}
-                      placeholder="Ingrese rut sin puntos ni digito verificador"
-                      value={rut}
-                  />
-
-                  <label>Contraseña</label>
-                  <input 
-                      type="password"
-                      name="pass"
-                      className="u-full-width"
-                      onChange={handleState}
-                      value={pass}
-
-                  />
-
-                  <label>Email</label>
-                  <input 
-                      type="email"
-                      name="email"
-                      className="u-full-width"
-                      onChange={handleState}
-                      value={email}
-                  />
-                  <label>Telefono</label>
-                  <input 
-                      type="number"
-                      name="phone"
-                      className="u-full-width"
-                      onChange={handleState}
-                      value={phone}
-                  />
-
-                  <label>Tipo de cuenta</label>
-                  <select
-                      className="u-full-width"
-                      name="type"
-                      onChange={handleState}
-                      value={type}
-                
-                
-                  >
-                    <option value="cliente">Cliente</option>
-                    <option value="entrenador">Entrenador</option>
-                    <option value="nutricionista">Nutricionista</option>
-                  </select>
-
-                  <button
-                      type="submit"
-                      className="u-full-width button-primary"
-                      onClick={submit}
-                  >Crear cuenta</button>
-              </form>
+            <div className="titulo col col-12 p-3 mb-4">
+              <h1 className="text-center text-shadow">Crear cuenta de usuario</h1>
             </div>
-            <div className="one-half column">
-                <h2>titulo</h2>
-        
+           
+            <div className="col col-12 p-0 py-4">
+              <form>
+                <div className="form-group">
+                  <div className="input-group">
+                    <div className="input-group-prepend p-0 col-3">
+                      <span className="input-group-text col-11">Nombre</span>
+                    </div>
+                    <input 
+                        type="text"
+                        name="name"
+                        className="form-control col-9"
+                        onChange={handleState}
+                        placeholder="Ingrese nombre"
+                        value={name}
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <div className="input-group">
+                    <div className="input-group-prepend p-0 col-3">
+                      <span className="input-group-text col-11">Rut</span>
+                    </div>
+                    <input 
+                        type="number"
+                        name="rut"
+                        className="form-control col-9"
+                        onChange={handleState}
+                        placeholder="Ingrese rut sin puntos ni digito verificador"
+                        value={rut}
+                        />
+                  </div>  
+                </div>
+
+                <div className="form-group row">
+                  <div className="input-group col-12">
+                    <div className="input-group-prepend p-0 col-3">
+                      <span className="input-group-text col-11">Contraseña</span>
+                    </div>
+                    <input 
+                        type="password"
+                        name="pass"
+                        className="form-control col-9"
+                        onChange={handleState}
+                        value={pass}
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <div className="input-group">
+                    <div className="input-group-prepend p-0 col-3">
+                      <span className="input-group-text col-11">Email</span>
+                    </div>
+                    <input 
+                        type="email"
+                        name="email"
+                        className="form-control col-9"
+                        onChange={handleState}
+                        value={email}
+                        />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <div className="input-group">
+                    <div className="input-group-prepend p-0 col-3">
+                      <span className="input-group-text col-11">Telefono</span>
+                    </div>
+                    <input 
+                        type="number"
+                        name="phone"
+                        className="form-control col-9"
+                        onChange={handleState}
+                        value={phone}
+                        />
+                  </div>      
+                </div>
+
+                <div className="form-group mb-5">
+                  <div className="input-group">
+                    <div className="input-group-prepend p-0 col-3">
+                      <span className="input-group-text col-11">Tipo de cuenta</span>
+                    </div>
+                    <select
+                        className="selector form-control col-9"
+                        name="type"
+                        onChange={handleState}
+                        value={type}
+                        >
+                      <option value="cliente">Cliente</option>
+                      <option value="entrenador">Entrenador</option>
+                      <option value="nutricionista">Nutricionista</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="form-group">
+                    <input
+                        type="submit"
+                        className="btn btn-info d-block mx-auto"
+                        onClick={submit}
+                        value="Crear Usuario"
+                    />
+                </div>
+              </form>
             </div>
           </div>
         </div>

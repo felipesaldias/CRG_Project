@@ -1,0 +1,27 @@
+*{
+  margin: 0px auto;
+  padding: 0px;
+}
+
+.titulo{
+    font-family: sans-serif;
+}
+
+.input-group-text {
+  align-items: center;
+  justify-content: center;
+}
+
+.selector:hover {
+  cursor: pointer;
+}
+
+.form-control-file{
+    display: 'none'
+}
+
+.imagecontainer > img{
+    height: 200px;
+    width: 230px; 
+    border:3px solid #17A2B8;
+}
