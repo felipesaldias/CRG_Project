@@ -1,59 +1,62 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import "./HomePanel.css"
+
 
 const HomePanel = () => {
     return (
         
-        <div class="container flex-wrap " >
-
-          <div class="row d-flex justify-content-center">
-            <div class="col-xs-6 col-md-3">
-            <button type="button" class="btn btn-default btn-lg">
-              <Link to='/crg/panel/newaccount'>Crear Usuario</Link> 
-
-            </button>
-            </div>
-            
-            <div class="col-xs-6 col-md-3">
-                <button type="button" class="btn btn-default btn-lg">
-                    <Link to='/crg/panel/user'>Listado de Usuarios</Link>
-                </button>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <button type="button" class="btn btn-default btn-lg">
-                    <Link to='/crg/panel/user/edit'>Editar un Usuario</Link>
-                </button>   
-            </div>
-          </div>
-          <div class="row d-flex justify-content-center">
-            <div class="col-xs-6 col-md-3">
-                <button type="button" class="btn btn-default btn-lg">
-                    <Link to='/crg/panel/user/routinemaker'>Crear una Rutina</Link>
-                </button>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <button type="button" class="btn btn-default btn-lg">
-                    <Link to='/crg/panel/user/loadpdf'>Subir Pdf</Link>
-                </button>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <button type="button" class="btn btn-default btn-lg">
-                    <Link to='/crg/panel/user/calendar'>Mostrar Calendario</Link>
-                </button>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <button type="button" class="btn btn-default btn-lg">
-                    <Link to='/crg/panel/addexercise'>Crear Ejercicio</Link>
-                </button>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <button type="button" class="btn btn-default btn-lg">
-                    <Link to='/crg/panel/exercises'>Lista Ejercicio</Link>
-                </button>
-            </div>
-          </div>
         
-        </div>
+
+       
+            <div class="container" >
+
+            <div class="row">
+
+                <ul class="nav nav-pills nav-fill">
+                
+                <li class="nav-item py-1">
+                <Link to='/crg/panel/newaccount' className="nav-link">CREAR USUARIO</Link> 
+                </li>
+                
+                
+                
+                
+                <li class="nav-item">
+                    <Link to='/crg/panel/user' className="nav-link">LISTADO USUARIOS</Link>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <Link to='/crg/panel/user/edit' className="nav-link">EDITAR USUARIOS</Link>
+                </li> 
+             
+            
+                <li class="nav-item"> 
+                    <Link to='/crg/panel/user/routinemaker' className="nav-link">CREAR RUTINAS</Link>
+                </li>
+                
+                <li class="nav-item"> 
+                        <Link to='/crg/panel/user/loadpdf' className="nav-link">SUBIR PDF</Link>
+                </li>
+
+                
+                <li class="nav-item"> 
+                        <Link to='/crg/panel/user/calendar' className="nav-link">MOSTRAR CALENDARIO</Link>
+                </li>
+
+                <li class="nav-item"> 
+                        <Link to='/crg/panel/addexercise' className="nav-link">CREAR EJERCICIO</Link>
+                </li>
+                
+
+                </ul>
+                </div>
+                
+            
+            
+            </div>
+       
     );
 };
 
