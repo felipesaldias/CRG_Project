@@ -38,7 +38,7 @@ const CrgPanel = props => {
       <Fragment>
         <Header/>
         <HomePanel/>
-          <div>
+          <div className="MaxContainer mx-auto">
             <Switch>
               <Route exact path ="/crg/panel/" component={UserList}/>
               <Route exact path ="/crg/panel/user/profile" component={Profile}/>

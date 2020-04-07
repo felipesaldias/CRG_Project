@@ -5,3 +5,9 @@
 .CrgPanel {
     /* propertys here */
 }
+
+.MaxContainer{
+
+    min-height: 76vh;
+
+}
