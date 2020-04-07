@@ -24,20 +24,6 @@ export default class RoutineMaker extends Component {
     static contextType = PanelContext
 
     checkFocus=()=>{
-        console.log("testttttt")
-        console.log(this.context.focususer)
-        if(!this.context.focususer){
-            this.props.history.push(
-                {
-                  pathname: '/crg/panel/user',
-                  search: '?from=routinemaker',
-                  //state: { detail: response.data }
-                })
-        }
-        //return this.state.oncalendar[uuid].exercise
-    }
-    componentDidMount() {
-        //this.checkFocus()
         if(!this.context.focususer){
             alert("Debe seleccionar un usuario sobre el cual trabajar, será redirigido")
             this.props.history.push(
@@ -48,6 +34,11 @@ export default class RoutineMaker extends Component {
                 })
                 return
         }
+        //return this.state.oncalendar[uuid].exercise
+    }
+    componentDidMount() {
+        //this.checkFocus()
+        
         getExercises().then(response => {
             console.log("la respuesta es la siguiente: "+response)
             this.setState({
