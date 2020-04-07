@@ -10,14 +10,11 @@ import styled from 'styled-components'
 import {getExercises, postRoutines}from '../../utils/api'
 import { v4 as uuidv4 } from 'uuid'
 import moment from 'moment'
+import './RoutineMaker.css'
 
-const Calendar = styled.div`
-display: flex;
-`
 
-const CreateRoutineButton = styled.div`
-display: flex;
-`
+
+
 
 export default class RoutineMaker extends Component {
     state=initialData
@@ -237,24 +234,33 @@ export default class RoutineMaker extends Component {
             <DragDropContext
                 onDragEnd={this.onDragEnd}
             >   
-                <WeekPicker setdate={this.setDate}/>
-                {this.state.exercises
-                ?<ListExercises key={this.state.columns['set'].id} column={this.state.columns['set']} exercises={this.state.exercises}/>
-                : null
-                }
-                <Calendar>
-                    {this.state.columnOrder.map((columnId)=>{
-                        var column = this.state.columns[columnId]
-                        const exercises = column.exercisesIds.map(exId=>this.state.exercises.find(exercise => {return exercise._id == this.deHash(exId)}))
-                        
-                        return <Column oncalendar={this.state.oncalendar} key={column.id} column={column} exercises={exercises} changereps={this.changeReps} changesets={this.changeSets}/>
-                    })}
-                </Calendar>
-                <CreateRoutineButton>
-                    <button onClick ={this.submitRoutine}>
-                        Crear Rutina
-                    </button>
-                </CreateRoutineButton>
+                <div>
+                    <div key="weekpicker">
+                        <WeekPicker setdate={this.setDate}/>
+                    </div>
+                    <div key="listado_ejercicios">
+                        {this.state.exercises
+                        ?
+                        <ListExercises key={this.state.columns['set'].id} column={this.state.columns['set']} exercises={this.state.exercises}/>
+                        : null
+                        }
+                    </div>
+                    
+                    <div className="calendar">
+                        {this.state.columnOrder.map((columnId)=>{
+                            var column = this.state.columns[columnId]
+                            const exercises = column.exercisesIds.map(exId=>this.state.exercises.find(exercise => {return exercise._id == this.deHash(exId)}))
+
+                            return <Column oncalendar={this.state.oncalendar} key={column.id} column={column} exercises={exercises} changereps={this.changeReps} changesets={this.changeSets}/>
+                        })}
+                    </div>
+                    <div>
+                        <button onClick ={this.submitRoutine}>
+                            Crear Rutina
+                        </button>
+                    </div>
+                </div>
+               
             </DragDropContext>
         )
     }

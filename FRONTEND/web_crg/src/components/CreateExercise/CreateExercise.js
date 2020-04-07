@@ -70,6 +70,7 @@ const handleState = e =>{
                   >
                     <option value="upper">Tren superior</option>
                     <option value="lower">Tren inferior</option>
+                    <option value="cardio">Cardio</option>
                   </select> 
 
                   <label>Grupo Muscular</label>

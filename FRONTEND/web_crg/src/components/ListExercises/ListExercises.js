@@ -52,7 +52,12 @@ const ListExercises = (props) => {
                                     </div>
                                     <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
                                         <div class="card-body p-0  ">
-                                        <CollapseGroup group="neck" exercises={exercises} text="Cuello"/>            
+                                        <CollapseGroup group="neck" exercises={exercises} text="Cuello"/>
+                                        <CollapseGroup group="shoulders" exercises={exercises} text="Hombro"/>
+                                        <CollapseGroup group="back" exercises={exercises} text="Espalda"/>            
+                                        <CollapseGroup group="arms" exercises={exercises} text="Brazos"/> 
+                                        <CollapseGroup group="chest" exercises={exercises} text="Pecho"/> 
+                                        <CollapseGroup group="abs" exercises={exercises} text="Abdominales"/> 
                                         </div>
                                     </div>
                                 </div>
@@ -62,17 +67,37 @@ const ListExercises = (props) => {
 
                             <div id="accordionL">
                                 <div class="card">
-                                    <div class="card-header" id="headingLower">
+                                    <div class="card-header p-0" id="headingL">
                                         <h5 class="mb-0">
-                                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseLower" aria-expanded="true" aria-controls="collapseLower">
-                                                -TREN SUPERIOR
+                                            <button class="p-3 btn btn-md btn-block text-dark font-weight-bold dropdown-toggle" data-toggle="collapse" data-target="#collapseL" aria-expanded="true" aria-controls="collapseL">
+                                                TREN INFERIOR
                                             </button>
                                         </h5>
                                     </div>
-                                    <div id="collapseLower" class="collapse " aria-labelledby="headingLower" data-parent="#accordionL">
-                                        <div class="card-body">
-                                            {/*{exercises.map((exercise,index) => <Exercise key={exercise._id} exercise={exercise} index={index} dragid={exercise._id} />)}
-                                            */}
+                                    <div id="collapseL" class="collapse " aria-labelledby="headingL" data-parent="#accordionL">
+                                        <div class="card-body p-0  ">
+                                        <CollapseGroup group="gluteus" exercises={exercises} text="Glueteos"/>
+                                        <CollapseGroup group="legs" exercises={exercises} text="Piernas"/>
+ 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="accordionC">
+                                <div class="card">
+                                    <div class="card-header p-0" id="headingC">
+                                        <h5 class="mb-0">
+                                            <button class="p-3 btn btn-md btn-block text-dark font-weight-bold dropdown-toggle" data-toggle="collapse" data-target="#collapseC" aria-expanded="true" aria-controls="collapseC">
+                                                CARDIO
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseC" class="collapse " aria-labelledby="headingC" data-parent="#accordionC">
+                                        <div class="card-body p-0  ">
+                                            {exercises.map((exercise,index) => {if(exercise.group=='cardio'){
+                                              return <Exercise key={exercise._id} exercise={exercise} index={index} dragid={exercise._id}/>}
+                                        })}
                                         </div>
                                     </div>
                                 </div>

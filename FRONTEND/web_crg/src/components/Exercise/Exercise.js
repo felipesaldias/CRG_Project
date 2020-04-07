@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const Container = styled.div`
 border: 1px solid lightgrey;
-border-radius: 250px;
+
 padding: 8px;
 margin-top: 4px;
 margin-bottom:4px;
@@ -35,20 +35,22 @@ export default function Exercise(props) {
     return (
         <Draggable draggableId={props.dragid} index={props.index}>
             {(provided,snapshot)=>(
-                <Container 
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                    ref={provided.innerRef}
-                    isDragging={snapshot.isDragging}
-                >
+                    <Container 
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                        isDragging={snapshot.isDragging}
+                    >
+                    <div className="data">
+                        {exdata.name}<br/>
+                        {exdata.region}<br/>
+                        {exdata.group}<br/>
+                        <img class="img" src={exdata.image}/><br/>  
+                    </div>
+                    </Container>                   
 
-                <Data>
-                    {exdata.name}<br/>
-                    {exdata.region}<br/>
-                    {exdata.group}<br/>
-                    <img class="img" src={exdata.image}/><br/>  
-                </Data>
-            </Container>
+                
+
 
             )}
             
