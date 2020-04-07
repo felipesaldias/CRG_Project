@@ -3,6 +3,7 @@ import React, { Fragment,Component} from 'react';
 import ReactDatatable from '@ashvin27/react-datatable';
 import './UserList.css';
 //import createConfigs from './datatables.config'
+import queryString from 'query-string'
 
 import {getUsers} from '../../utils/api'
 import PanelContext from '../../context/panel/panelContext';
@@ -81,14 +82,22 @@ class UserList extends Component {
     componentWillMount() {
         //const response = getUsers().then((result)=>this.records = result.data.users)
        // this.records = 
+       console.log(this.props.location.search);
+        console.log()
        getUsers()
        .then(result => this.setState({ records: result.data.users }))//aparte guardarlos en el contexto en una variable users
     }
     editUser(user) {
-      console.log("Edit User", user);
-      this.context.setUser(user).then(
-
-        ()=>this.props.history.push('/crg/panel/profile')
+        console.log("Edit User", user);
+        this.context.setUser(user).then(()=>{
+            let from= queryString.parse(this.props.location.search).from
+            if(from){
+                this.props.history.push(`/crg/panel/user/${from}`)
+            }
+            else{
+                this.props.history.push('/crg/panel/user/profile')
+            }
+        }
         )
       //
   }

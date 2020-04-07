@@ -40,7 +40,13 @@ const Login = (props) =>  {
     useEffect(()=>{
      
       if(authenticated){
-        props.history.push('/crg/panel/');
+        props.history.push(
+          {
+            pathname: '/crg/panel/',
+            search: '?from=login',
+            //state: { detail: response.data }
+          }
+        );
 
       }
     })

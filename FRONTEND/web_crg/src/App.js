@@ -10,6 +10,7 @@ import CrgPanel from './pages/CrgPanel';
 import Home from './pages/Home/Home';
 import PrivateRoute from './components/Routes/PrivateRoute';
 import CreateAccount from './components/CreateAccount';
+import RoutineMaker from './components/RoutineMaker/RoutineMaker';
 
 //import UserList from './components/UsersList/UserList';
 
@@ -30,7 +31,8 @@ function App() {
           
           <div className="body" >
             <Switch>
-              <Route exact path ="/" component={Login}/>
+              {/*<Route exact path ="/" component={Login}/>*/}
+              <Route exact path ="/" component={RoutineMaker}/>
               <Route exact path ="/crg" component={Login} />
               <Route exact path ="/home" component={Home}/>
               <Route exact path ="/user" component={CreateAccount}/>

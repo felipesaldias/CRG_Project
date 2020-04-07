@@ -50,9 +50,23 @@ const handleState = e =>{
       <div className="container shadow bg-light w-50 mx-auto my-5 p-5">
         <div className="row">
 
+
             <div className="titulo col col-12 p-3 mb-4">
               <h1 className="text-center text-shadow">Crear ejercicio nuevo</h1>
             </div>
+
+                  <label>Region Cuerpo</label>
+                  <select
+                      className="u-full-width"
+                      name="region"
+                      onChange={handleState}
+                      value={region}
+                  >
+                    <option value="upper">Tren superior</option>
+                    <option value="lower">Tren inferior</option>
+                    <option value="cardio">Cardio</option>
+                  </select> 
+
 
           <div className="col col-12 p-0 py-4">
             <form>
