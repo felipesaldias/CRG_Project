@@ -36,10 +36,11 @@ const CrgPanel = props => {
     //<li><Link to='/crg/panel/nutritionist'>Listado de Nutricionistas</Link></li>
     return (
       <Fragment>
-        <Header></Header>
+        <Header/>
+        <HomePanel/>
           <div>
             <Switch>
-              <Route exact path ="/crg/panel/" component={HomePanel}/>
+              <Route exact path ="/crg/panel/" component={UserList}/>
               <Route exact path ="/crg/panel/user/profile" component={Profile}/>
               <Route exact path ="/crg/panel/newaccount" component={CreateAccount} /> 
               <Route exact path ="/crg/panel/user" component={UserList} />
