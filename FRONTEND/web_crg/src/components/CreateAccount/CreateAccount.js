@@ -39,7 +39,7 @@ class CreateAccount extends Component {
     }
     return (
       <div>
-        <div className="container shadow bg-light w-50 mx-auto my-5 p-5">
+        <div className="container container-user shadow bg-light mx-auto my-5 p-5">
           <div className="row">
 
             <div className="titulo col col-12 p-3 mb-4">

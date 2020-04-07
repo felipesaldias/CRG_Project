@@ -36,7 +36,7 @@ const UploadPdf = () => {
         <div>
             <div className="container shadow bg-light w-50 mx-auto my-5 p-5">
                 <div className="row justify-content-center">
-                    <div className="titulo col col-12 p-3 mb-4">
+                    <div className="titulo col col-12 p-3">
                         <h1 className="text-center text-shadow">Subir Archivo PDF</h1>
                     </div>
                     <div className="col col-6 p-0 py-4">
@@ -54,10 +54,13 @@ const UploadPdf = () => {
                         </form>    
                     </div>
                 </div>
+                { filename != "choose File"? <div className= "text-center mb-4 ">{filename}</div>
+                  : null
+                }
                 <div className="form-group">
                     <input
                         type="submit"
-                        className="btn btn-info d-block mx-auto"
+                        className="btn btn-info d-block mx-auto mb-5"
                         onClick={onClickHandler}
                         value="Subir PDF"
                     />

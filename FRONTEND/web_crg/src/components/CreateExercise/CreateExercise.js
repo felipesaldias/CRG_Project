@@ -110,7 +110,7 @@ const handleState = e =>{
                     </select>
                   </div>
                 </div>
-                <div className="form-group row m-0 p-0 mb-5">
+                <div className="form-group row shadow border rounded m-0 p-3 mb-5">
                   <label className="control-label col-6 m-0 px-2" htmlFor="upload-button">
                     {
                       image.preview ? <div className="imagecontainer col m-0 p-0"><img className="col m-0 p-0 rounded" src={ image.preview }/></div> : (

@@ -1,6 +1,7 @@
 import React, { Fragment,Component} from 'react';
 //import { render} from 'react-dom';
 import ReactDatatable from '@ashvin27/react-datatable';
+import './UserList.css';
 //import createConfigs from './datatables.config'
 
 import {getUsers} from '../../utils/api'
@@ -16,7 +17,7 @@ class UserList extends Component {
 
         this.columns = [{
           key: "name",
-          text: "Name",
+          text: "Nombre",
           className: "name",
           align: "left",
           sortable: true,
@@ -51,7 +52,7 @@ class UserList extends Component {
               return (
                   <Fragment>
                       <button
-                          className="btn btn-primary btn-sm"
+                          className="btn btn-info btn-sm"
                           onClick={() => this.editUser(record)}
                           style={{marginRight: '5px'}}>
                           <i className="fa fa-edit"></i>
@@ -95,13 +96,18 @@ class UserList extends Component {
 
     render() {
         return (
-            <div>
-                <ReactDatatable 
-                    config={this.config}
-                    records={this.state.records}
-                    columns={this.columns}
-                    extraButtons={this.extraButtons}
-                />
+            <div className="container shadow bg-light mx-auto my-5 p-5">
+                
+                    <div className="titulo p-3">
+                        <h1 className="text-center text-shadow mb-5">Lista de Usuarios</h1>
+                    </div>
+                    <ReactDatatable 
+                        config={this.config}
+                        records={this.state.records}
+                        columns={this.columns}
+                        extraButtons={this.extraButtons}
+                    />
+                
             </div>
         )
     }
