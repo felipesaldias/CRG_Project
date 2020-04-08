@@ -21,6 +21,12 @@ const handleState = e =>{
   })      
 }
   const handleChange = (e) => {
+    var ext_image =e.target.files[0].name.split(".")[1]
+    if((ext_image != 'png' ) && (ext_image != "jpeg" ) && (ext_image != "jpg")){
+      alert("Formato de la imagen debe ser png, jpeg o jpg")
+      return null
+    }
+
     setImage({
       preview: URL.createObjectURL(e.target.files[0]),
       raw: e.target.files[0]
@@ -28,6 +34,7 @@ const handleState = e =>{
   }
   
   const handleUpload = async (e) => {
+    
     e.preventDefault()
     const formData = new FormData()
     formData.append('file', image.raw)

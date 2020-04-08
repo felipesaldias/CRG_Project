@@ -12,6 +12,11 @@ const UploadPdf = () => {
     const [file, setFile] = useState('')
     const [filename, setFilename] = useState('choose File')
     const onChangeHandler=event=>{
+        var expdf =event.target.files[0].name.split(".")[1]
+        if(expdf != 'pdf'){
+            alert("El archivo debe ser formato pdf")
+            return null
+        }
 
         console.log(event.target.files[0])
         let archivo=event.target.files[0]
@@ -19,6 +24,8 @@ const UploadPdf = () => {
         setFilename(event.target.files[0].name)
     }
     const onClickHandler=()=>{
+        
+
         const data = new FormData() 
         console.log("el archivo que vamos a appendear es")
         console.log(file)
