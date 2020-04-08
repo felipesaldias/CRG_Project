@@ -88,9 +88,6 @@ const Home = (props) =>  {
                             </div>
                         </div>
                     :null} 
-                    <div className="tituloHome col col-12 p-3 mb-4">
-                        <h3 className="text-center text-shadow">Page destinada a las consultas de rutina para los asistentes del gimnasio</h3>
-                    </div>
                     
                 </div>
             </div>  

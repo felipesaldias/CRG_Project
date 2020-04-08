@@ -4,15 +4,24 @@ import PanelContext from '../../context/panel/panelContext'
 import { Fragment } from 'react';
 import "./Header.css"
 import  logo from "./logo.jpeg"
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
     const authContext = useContext(AuthContext);
     const {user, logOut} = authContext;
     const panelContext = useContext(PanelContext);
-    const {focususer} = panelContext;
+    const {focususer,removeUser} = panelContext;
     const handleLogOut = () =>{
         logOut();
     };
+
+    const changeUser = e =>{
+        //let history = useHistory();
+        removeUser()
+        window.location.href='/crg' 
+        //props.history.push('/crg/panel/user')      
+      }
     return (
         
         <Fragment>
@@ -39,7 +48,13 @@ const Header = () => {
             <div class="bottom-div shadow-sm pt-3 pl-3 mb-3 mt-2 font-weight-bold">
 
                 <span class="float-top">Estas trabajando sobre: {focususer.name} {focususer.rut}
-                <button class="btn btn-link btn-sm float-right " type="button">Cambiar usuario</button>
+                <button class="btn btn-link btn-sm float-right " type="button" >
+                <Link
+                            to='/crg/panel/user'
+                            id="link"
+                            onClick={(e)=> removeUser()}
+                            >Cambiar Usuario</Link>
+                </button>
                 </span>
             </div>
             : null

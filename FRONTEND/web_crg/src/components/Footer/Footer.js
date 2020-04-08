@@ -4,6 +4,7 @@ import boton from '../../assets/img/button.png';
 import './Footer.css';
 import PanelContext from '../../context/panel/panelContext'
 
+
 const Footer = () => {
 
     const panelContext = useContext(PanelContext);

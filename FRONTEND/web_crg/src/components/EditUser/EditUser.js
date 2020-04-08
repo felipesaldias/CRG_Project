@@ -32,7 +32,7 @@ import { updateUser} from '../../utils/api';
             props.history.push(
                 {
                   pathname: '/crg/panel/user',
-                  search: '?from=loadpdf',
+                  search: '?from=edit',
                   //state: { detail: response.data }
                 })
                 return
@@ -61,11 +61,7 @@ import { updateUser} from '../../utils/api';
       }
     return (
         <div>
-            editar
-            {focususer? focususer.name
-            :null
-
-            }
+            
             <div>
                 
                 <div className="container shadow bg-light w-50 mx-auto my-5 p-5">
