@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { getRoutines } from '../../utils/api';
 import moment from "moment";
+import Calendar from '../../components/Calendar/Calendar'
+
+
 
 const Home = (props) =>  {
     const [rut, handleUser] = useState("")
@@ -16,7 +19,7 @@ const Home = (props) =>  {
           if(routines){
             let day= currentMoment.startOf('week')
             console.log(day)
-            handleLoaded(true)
+            
             console.log(routines)
             var filter= routines.filter((routine)=>{
                 console.log("la fecha de la rutina es")
@@ -26,11 +29,18 @@ const Home = (props) =>  {
             })
             .sort((a, b) => moment(a.date) - moment(b.date))
             handleFiltered(filter)
+            
             console.log (filter)
           }
 
           
       },[routines])
+      useEffect(() => {
+        if(filtered){
+            handleLoaded(true)   
+
+        } 
+      }, [filtered])
 
     const submit=(e)=>{
         e.preventDefault()
@@ -56,7 +66,9 @@ const Home = (props) =>  {
                 <button onClick={submit}>Enviar</button>
             </form>
             page destinada a las consultas de rutina para los asistentes del gimnasio
-            {loaded? <div>{JSON.stringify(routines)}</div>
+            {loaded?  
+                <Calendar routine={filtered[0]} ></Calendar>
+              
             :null}   
         </div>
     );
