@@ -14,14 +14,7 @@ const Footer = () => {
             <div className="footer-container shadow m-0 p-0 mt-3">
                 <div className="wrap row w-100 mx-auto"> 
                     <div className="img-wrap col-2 m-0 p-0 pl-3 py-3">
-                        <button id="link" className="border-corner d-block">
-                            <img src={boton} width="40" height="40"></img>
-                            <Link
-                            to='/crg/panel/'
-                            id="link"
-                            onClick={(e)=> removeUser()}
-                            >Volver home</Link>
-                        </button>
+                        
                     </div>
                     <div className="text-wrap col-10 m-0 p-0 pr-3 py-3">
                         <p className="texto">Developed by CRG Team &copy; Valdivia 2020</p>
@@ -33,3 +26,13 @@ const Footer = () => {
 };
 
 export default Footer;
+
+/*                          
+<button id="link" className="border-corner d-block">
+    <img src={boton} width="40" height="40"></img>     
+</button>
+<Link
+                            to='/crg/panel/'
+                            id="link"
+                            onClick={(e)=> removeUser()}
+                            >Volver home</Link> */

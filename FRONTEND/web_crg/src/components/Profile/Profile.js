@@ -36,7 +36,7 @@ const Profile = props => {
    
           <div class="panel panel-info border">
             <div class="panel-heading">
-             <h3 class="panel-title p-3">Nombre Aqui</h3>
+    <h3 class="panel-title p-3">{focususer.name}</h3>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -46,15 +46,15 @@ const Profile = props => {
                     <tbody>
                       <tr>
                         <td>RUT:</td>
-                        <td>RUT AQUI</td>
+                        <td>{focususer.rut}</td>
                       </tr>
                       <tr>
                         <td>Correo:</td>
-                        <td>CORREO AQUI</td>
+                        <td>{focususer.email}</td>
                       </tr>
                       <tr>
                         <td>Telefono</td>
-                        <td>TELEFONO AQUI</td>
+                         <td>{focususer.phone}</td>
                       </tr>
                      
                     </tbody>
@@ -62,8 +62,7 @@ const Profile = props => {
                   <div class="py-5">
                   <Link to='/crg/panel/user/edit' class="btn btn-info  btn-sm">Editar Informacion</Link>
                   <Link to='/crg/panel/user/loadpdf' class="btn btn-info  mx-2 btn-sm">Subir Pdf</Link>
-                  <Link to='/crg/panel/user/loadpdf' class="btn btn-info  btn-sm">Crear rutina</Link>
-                  <Link to='/crg/panel/user/loadpdf' class="btn btn-info  btn-sm my-3">Ver rutina</Link>
+                  <Link to='/crg/panel/user/routinemaker' class="btn btn-info  btn-sm">Crear rutina</Link>
                   <button type="button" class="btn btn-info my-3 mx-2 btn-sm" onClick={onClick}>Descargar pdf</button>
                   
                   </div>

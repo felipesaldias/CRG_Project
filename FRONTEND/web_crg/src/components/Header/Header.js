@@ -46,8 +46,14 @@ const Header = (props) => {
             {focususer?
 
             <div class="bottom-div shadow-sm pt-3 pl-3 mb-3 mt-2 font-weight-bold">
+                <Link
+                  to='/crg/panel/user/profile'
+                  id="link2"
+                 >
+                     Estas trabajando en: {focususer.name} , Rut: {focususer.rut}
+                </Link>
 
-                <span class="float-top">Estas trabajando sobre: {focususer.name} {focususer.rut}
+                <span class="float-top">
                 <button class="btn btn-link btn-sm float-right " type="button" >
                 <Link
                             to='/crg/panel/user'
