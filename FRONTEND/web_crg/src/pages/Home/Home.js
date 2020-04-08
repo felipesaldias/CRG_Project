@@ -24,6 +24,7 @@ const Home = (props) =>  {
                 console.log(day._d)
                 return moment(routine.date) > day
             })
+            .sort((a, b) => moment(a.date) - moment(b.date))
             handleFiltered(filter)
             console.log (filter)
           }
