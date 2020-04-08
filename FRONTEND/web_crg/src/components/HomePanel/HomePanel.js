@@ -10,11 +10,11 @@ const HomePanel = () => {
         <ul class="nav nav-pills nav-fill shadow">
         
           
-        <li class="nav-item">
+        <li class="nav-item mt-1">
             <Link to='/crg/panel/user' className="nav-link">LISTADO USUARIOS</Link>
         </li>
 
-        <li class="nav-item py-1">
+        <li class="nav-item">
             <Link to='/crg/panel/newaccount' className="nav-link">CREAR USUARIO</Link> 
         </li>
               

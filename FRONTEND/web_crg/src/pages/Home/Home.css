@@ -18,9 +18,7 @@
     display: flex;
     justify-content: center;
 }
-.form-group{
-    width: 43vw;
-}
+
 .calendarWrap{
     width: auto;
     display: flex;
@@ -40,7 +38,7 @@
 }
 
 .inputRut{
-    cursor: pointer !important;
+    cursor: pointer;
 }
 
 .wrapCal{
