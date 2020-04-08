@@ -123,7 +123,16 @@ export default class RoutineMaker extends Component {
             date: this.state.date[1]._d,
             routine: payload_routine  
         }
-        postRoutines(this.context.focususer._id,payload)
+        postRoutines(this.context.focususer._id,payload).then(response=>{
+            if(response.data.msg == 'success'){
+                alert("La rutina se creo exitosamente")
+                this.setState({
+                    ...this.state,
+                    columns: initialData.columns,
+                    oncalendar:{},
+                })
+            }
+        })
         //console.log(routine)
 
         
