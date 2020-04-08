@@ -40,11 +40,17 @@ module.exports = class HandlerRoutine{
         
         async function run(id){
 
-                let us=""
+                let us=null
                 await User.findOne({rut: req.params.id }, function (err, user){
                     if (err){
                         res.status(404).send({
-                            msg: "el usuario no exciste"
+                            msg: "el usuario no existe"
+                        })
+                        return
+                    }
+                    if(user==null){
+                        res.status(404).send({
+                            msg: "el usuario no existe"
                         })
                         return
                     }
@@ -53,6 +59,8 @@ module.exports = class HandlerRoutine{
 
 
                 })
+                if(us==null){return}
+                
                 console.log(us)
                 let count;
                 let arr = [];

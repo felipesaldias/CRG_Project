@@ -48,7 +48,7 @@ const Home = (props) =>  {
         console.log(rut)
         //hacer peticion y mostrar la rutina (no redirigir, mostrar un componente)
         getRoutines(rut).then(response =>{
-            console.log(response.data)
+            
             handleRoutines(response.data)
         })
         

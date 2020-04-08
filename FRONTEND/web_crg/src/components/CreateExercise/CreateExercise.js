@@ -5,8 +5,8 @@ import {postExercise}from '../../utils/api'
 export default function CreateExercise() {
   var initialState= 
   {name: "",
-  region: "upper", 
-  group: "neck" ,
+  region: "cardio", 
+  group: "cardio" ,
 }
 
 const [exercise, handleExercises] = useState(initialState);
@@ -46,7 +46,8 @@ const handleState = e =>{
     let img=formData
     console.log(exercise)
     //await uploadToBackend('endpoint', {image: image.raw}, config)
-    postExercise(exercise,img)
+    postExercise(exercise,img).then(
+      alert("El ejercicio se agrego exitosamente a la db"))
   }
   const submit = e =>{
     alert(JSON.stringify(exercise))
