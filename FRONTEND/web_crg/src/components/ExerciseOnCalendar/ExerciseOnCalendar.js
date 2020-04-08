@@ -12,6 +12,7 @@ background-color: ${props =>(props.isDragging ? 'lightgreen' : 'rgba(23, 162, 18
 `
 const Data = styled.div`
 justify-content: center;
+border: 2px solid black
 `
 const Buttons = styled.div`
     display: flex;
@@ -71,7 +72,7 @@ export default function ExerciseOnCalendar(props) {
                                     -
                                 </button>
                                 <label>
-                                    repeticiones: {props.info.reps}
+                                    reps: {props.info.reps}
                                 </label>
                                 <button className="btn btn-dark btn-sm" onClick={sumReps}>
                                     +

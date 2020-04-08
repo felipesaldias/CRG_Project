@@ -246,7 +246,7 @@ export default class RoutineMaker extends Component {
                         }
                     </div>
                     
-                    <div className="calendar">
+                    <div className="calendar fijo">
                         {this.state.columnOrder.map((columnId)=>{
                             var column = this.state.columns[columnId]
                             const exercises = column.exercisesIds.map(exId=>this.state.exercises.find(exercise => {return exercise._id == this.deHash(exId)}))
