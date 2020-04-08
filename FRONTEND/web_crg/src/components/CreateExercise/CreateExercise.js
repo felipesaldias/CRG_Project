@@ -51,7 +51,14 @@ const handleState = e =>{
   const submit = e =>{
     alert(JSON.stringify(exercise))
   }
-
+  var exercises_type ={
+    upper: ['neck','shoulders','back','arms','chest','abs'],
+    upper_es: ['Cuello','Hombros','Espalda','Brazos','Pecho','Abdominales'],
+    lower: ['gluteus','legs'],
+    lower_es: ['Gluteos','Piernas'],
+    cardio: ['cardio'],
+    cardio_es: ['Cardio']
+    }
   return (
     <div>
       <div className="container shadow bg-light w-50 mx-auto my-5 p-5">
@@ -61,19 +68,6 @@ const handleState = e =>{
             <div className="titulo col col-12 p-3 mb-4">
               <h1 className="text-center text-shadow">Crear ejercicio nuevo</h1>
             </div>
-
-                  <label>Region Cuerpo</label>
-                  <select
-                      className="u-full-width"
-                      name="region"
-                      onChange={handleState}
-                      value={region}
-                  >
-                    <option value="upper">Tren superior</option>
-                    <option value="lower">Tren inferior</option>
-                    <option value="cardio">Cardio</option>
-                  </select> 
-
 
           <div className="col col-12 p-0 py-4">
             <form>
@@ -105,6 +99,7 @@ const handleState = e =>{
                     >
                       <option value="upper">Tren superior</option>
                       <option value="lower">Tren inferior</option>
+                      <option value="cardio">Cardio</option>
                     </select> 
                   </div>
                 </div>
@@ -119,15 +114,9 @@ const handleState = e =>{
                         onChange={handleState}
                         value={group}
                     >
-                      <option value="neck">Cuello</option>
-                      <option value="shoulders">Hombros</option>
-                      <option value="back">Espalda</option>
-                      <option value="arms">Brazos</option>
-                      <option value="chest">Pecho</option>
-                      <option value="abs">Abdominales</option>
-                      <option value="gluteus">Gluteos</option>
-                      <option value="legs">Piernas</option>
-                      <option value="cardio">Cardio</option>
+                      {exercises_type[exercise.region].map((g,i)=>
+                        <option value={g}>{exercises_type[exercise.region+"_es"][i]}</option>
+                      )}
                     </select>
                   </div>
                 </div>
