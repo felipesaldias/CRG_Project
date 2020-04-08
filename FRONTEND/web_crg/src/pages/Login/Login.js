@@ -43,7 +43,7 @@ const Login = (props) =>  {
         props.history.push(
           {
             pathname: '/crg/panel/',
-            search: '?from=login',
+            //search: '?from=login',
             //state: { detail: response.data }
           }
         );

@@ -1,16 +1,33 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext,useEffect} from 'react';
 import './UploadPdf.css'
 import {postPdf}from '../../utils/api'
 import PanelContext from '../../context/panel/panelContext'
 var fileDownload = require('js-file-download');
 
-const UploadPdf = () => {
-
+const UploadPdf = (props) => {
+    
     const panelContext = useContext(PanelContext)
     const {focususer} = panelContext;
-
+    
     const [file, setFile] = useState('')
     const [filename, setFilename] = useState('choose File')
+    
+    const checkFocus=()=>{
+        if(!focususer){
+            alert("Debe seleccionar un usuario sobre el cual trabajar, será redirigido")
+            props.history.push(
+                {
+                  pathname: '/crg/panel/user',
+                  search: '?from=loadpdf',
+                  //state: { detail: response.data }
+                })
+                return
+        }
+        //return this.state.oncalendar[uuid].exercise
+    }
+    useEffect(() => {
+        checkFocus()
+    }, [])
     const onChangeHandler=event=>{
         var expdf =event.target.files[0].name.split(".")[1]
         if(expdf != 'pdf'){

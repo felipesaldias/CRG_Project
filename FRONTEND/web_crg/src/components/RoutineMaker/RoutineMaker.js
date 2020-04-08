@@ -34,7 +34,7 @@ export default class RoutineMaker extends Component {
         //return this.state.oncalendar[uuid].exercise
     }
     componentDidMount() {
-        //this.checkFocus()
+        this.checkFocus()
         
         getExercises().then(response => {
             console.log("la respuesta es la siguiente: "+response)
