@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import './CreateExercise.css'
 import {postExercise}from '../../utils/api'
-
+/*var ext_image =e.target.files[0].name.split(".")[1]
+    if((ext_image != 'png' ) && (ext_image != 'jpeg' ) && (ext_image != 'jpg')){
+      alert("Formato de la imagen debe ser png, jpeg o jpg")
+      return null
+    } */
 export default function CreateExercise() {
   var initialState= 
   {name: "",
-  region: "cardio", 
-  group: "cardio" ,
+  region: "upper", 
+  group: "" ,
 }
 
 const [exercise, handleExercises] = useState(initialState);
@@ -21,11 +25,7 @@ const handleState = e =>{
   })      
 }
   const handleChange = (e) => {
-    var ext_image =e.target.files[0].name.split(".")[1]
-    if((ext_image != 'png' ) && (ext_image != "jpeg" ) && (ext_image != "jpg")){
-      alert("Formato de la imagen debe ser png, jpeg o jpg")
-      return null
-    }
+    
 
     setImage({
       preview: URL.createObjectURL(e.target.files[0]),
@@ -48,17 +48,19 @@ const handleState = e =>{
     //await uploadToBackend('endpoint', {image: image.raw}, config)
     postExercise(exercise,img).then(
       alert("El ejercicio se agrego exitosamente a la db"))
+      cleanForm()
   }
-  const submit = e =>{
-    alert(JSON.stringify(exercise))
+  const cleanForm = e =>{
+    handleExercises(initialState)
+    setImage({preview: '', raw: ''})
   }
   var exercises_type ={
-    upper: ['neck','shoulders','back','arms','chest','abs'],
-    upper_es: ['Cuello','Hombros','Espalda','Brazos','Pecho','Abdominales'],
-    lower: ['gluteus','legs'],
-    lower_es: ['Gluteos','Piernas'],
-    cardio: ['cardio'],
-    cardio_es: ['Cardio']
+    upper: ['','neck','shoulders','back','arms','chest','abs'],
+    upper_es: ['','Cuello','Hombros','Espalda','Brazos','Pecho','Abdominales'],
+    lower: ['','gluteus','legs'],
+    lower_es: ['','Gluteos','Piernas'],
+    cardio: ['','cardio'],
+    cardio_es: ['','Cardio']
     }
   return (
     <div>
