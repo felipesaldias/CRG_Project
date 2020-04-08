@@ -43,9 +43,15 @@ export default class RoutineMaker extends Component {
                 exercises:response.data.exercises,
                 oncalendar:{},
                 date:[{},{['_d']: moment().startOf('isoweek') }]
-            },()=>{console.log("Asi quedo el estado "+ JSON.stringify(this.state.exercises))})
+            },()=>{
+                let days= this.calculateActiveWeek(this.state.date[1])
+                    this.setState({
+                    ...this.state,
+                    days: days
+                })
+            })
     
-        }) 
+        },) 
         
     }
     addExercise=(key,exerciseId)=>{
@@ -92,11 +98,30 @@ export default class RoutineMaker extends Component {
             }
         })
     }
+    calculateActiveWeek = (date) => {
+        
+        const mon = moment(date).startOf("isoweek");
+        const tue = mon.clone().add(1, "d");
+        const wed = mon.clone().add(2, "d");
+        const thu = mon.clone().add(3, "d");
+        const fri = mon.clone().add(4, "d");
+        const sat = mon.clone().add(5, "d");
+        const sun = mon.clone().add(6, "d");
+        return [mon, tue, wed, thu, fri, sat, sun];
+      };
+
     setDate=(date)=>{
         
         this.setState({
             ...this.state,
-           date: date
+           date: date,
+           
+        },()=>{
+            let days= this.calculateActiveWeek(this.state.date[1])
+                this.setState({
+                ...this.state,
+                days: days
+            })
         })
     }
     
@@ -256,12 +281,14 @@ export default class RoutineMaker extends Component {
                     </div>
                     
                     <div className="calendar fijo">
-                        {this.state.columnOrder.map((columnId)=>{
-                            var column = this.state.columns[columnId]
-                            const exercises = column.exercisesIds.map(exId=>this.state.exercises.find(exercise => {return exercise._id == this.deHash(exId)}))
+                        {this.state.days?
+                            this.state.columnOrder.map((columnId,index)=>{
+                                var column = this.state.columns[columnId]
+                                const exercises = column.exercisesIds.map(exId=>this.state.exercises.find(exercise => {return exercise._id == this.deHash(exId)}))
 
-                            return <Column oncalendar={this.state.oncalendar} key={column.id} column={column} exercises={exercises} changereps={this.changeReps} changesets={this.changeSets}/>
-                        })}
+                                return <Column oncalendar={this.state.oncalendar} key={column.id} column={column} exercises={exercises} changereps={this.changeReps} changesets={this.changeSets} day={this.state.days[index]._d}/>
+                            })
+                        :null}
                     </div>
                     <div className="buttonContainer mt-2">
                         <input

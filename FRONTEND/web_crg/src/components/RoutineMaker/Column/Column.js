@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import {Droppable} from 'react-beautiful-dnd'
 import ExerciseOnCalendar from '../../ExerciseOnCalendar/ExerciseOnCalendar';
+import moment from 'moment'
 
 const Container = styled.div`
     margin: 8px;
@@ -23,11 +24,14 @@ const ExerciseList = styled.div`
 `;
 
 export default class Column extends Component {
+  
+   
     render(){
         return(
 
         <Container>
-            <Title>{this.props.column.title}</Title>
+            <Title>{this.props.column.title+" "+moment(this.props.day).format('Do ')}</Title>
+            
             <Droppable droppableId={this.props.column.id}>
                 {(provided,snapshot) => (
                     <ExerciseList
