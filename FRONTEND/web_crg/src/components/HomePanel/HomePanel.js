@@ -7,7 +7,7 @@ const HomePanel = () => {
     return (
         
 
-        <ul class="nav nav-pills nav-fill">
+        <ul class="nav nav-pills nav-fill shadow">
         
         <li class="nav-item py-1">
         <Link to='/crg/panel/newaccount' className="nav-link">CREAR USUARIO</Link> 
