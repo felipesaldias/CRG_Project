@@ -1,15 +1,13 @@
 import React,{useState} from 'react'
 import {Draggable} from 'react-beautiful-dnd'
 import styled from 'styled-components'
+import './ExerciseOnCalendar.css'
 
 const Container = styled.div`
-border: 1px solid lightgrey;
-border-radius: 250px;
+
 padding: 8px;
-margin-top: 4px;
-margin-bottom:4px;
 opacity: ${props =>(props.isDragging ? 0.5 : 1)};
-background-color: ${props =>(props.isDragging ? 'lightgreen' : 'white')}
+background-color: ${props =>(props.isDragging ? 'lightgreen' : 'rgba(23, 162, 184, .1)')}
 
 `
 const Data = styled.div`
@@ -17,7 +15,6 @@ justify-content: center;
 `
 const Buttons = styled.div`
     display: flex;
-    background-color: blue
 `;
 
 
@@ -61,32 +58,40 @@ export default function ExerciseOnCalendar(props) {
                 >
 
                 <Data>
-                    {exdata.name}<br/>
-                    {exdata.region}<br/>
-                    {exdata.group}<br/>
-                    <img class="img" src={exdata.image}/><br/>  
-                    <Buttons>
-                        <button onClick={resReps}>
-                            -
-                        </button>
-                        <label>
-                            repeticiones: {props.info.reps}
-                        </label>
-                        <button onClick={sumReps}>
-                            +
-                        </button><br/>
-                    </Buttons>
-                    <Buttons>
-                        <button onClick={resSets}>
-                            -
-                        </button>
-                        <label>
-                            series: {props.info.sets}
-                        </label>
-                        <button onClick={sumSets}>
-                            +
-                        </button><br/>
-                    </Buttons>
+                    <div className="infoText">
+                        <span style={{fontWeight:"bold"}}>Name: </span>{exdata.name}<br/>
+                        <span style={{fontWeight:"bold"}}>Region: </span>{exdata.region}<br/>
+                        <span style={{fontWeight:"bold"}}>Group: </span>{exdata.group}<br/>
+                    </div>
+                    <img class="imgOnCal" src={exdata.image}/><br/> 
+                    <div className="buttonCenter row">
+                        <Buttons>
+                            <div className="buttonCenter col-12">
+                                <button className="btn btn-dark btn-sm" onClick={resReps}>
+                                    -
+                                </button>
+                                <label>
+                                    repeticiones: {props.info.reps}
+                                </label>
+                                <button className="btn btn-dark btn-sm" onClick={sumReps}>
+                                    +
+                                </button><br/>
+                            </div>
+                        </Buttons>
+                        <Buttons>
+                            <div className="buttonCenter col-12">
+                                <button className="btn btn-dark btn-sm" onClick={resSets}>
+                                    -
+                                </button>
+                                <label>
+                                    series: {props.info.sets}
+                                </label>
+                                <button className="btn btn-dark btn-sm" onClick={sumSets}>
+                                    +
+                                </button><br/>
+                            </div>
+                        </Buttons>
+                    </div>
                     
                    
                 </Data>

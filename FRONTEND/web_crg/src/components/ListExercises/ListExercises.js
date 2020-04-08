@@ -9,8 +9,8 @@ const Container = styled.div`
     margin: 8px;
     border: 1px solid lightgrey;
     border-radius: 2px;
-    min-height: 100px;
-    width: 200px;
+    height: auto;
+    width: auto;
 
     display: flex;
     flex-direction: column;
@@ -42,16 +42,16 @@ const ListExercises = (props) => {
                             isDropDisabled={true}
                         >
                             <div id="accordion">
-                                <div class="card">
-                                    <div class="card-header p-0" id="headingOne">
+                                <div class="card w-auto h-auto">
+                                    <div class="card-header p-0 w-auto h-auto" id="headingOne">
                                         <h5 class="mb-0">
                                             <button class="p-3 btn btn-md btn-block text-dark font-weight-bold dropdown-toggle" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                                 TREN SUPERIOR
                                             </button>
                                         </h5>
                                     </div>
-                                    <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
-                                        <div class="card-body p-0  ">
+                                    <div id="collapseOne" class="collapse w-auto h-auto" aria-labelledby="headingOne" data-parent="#accordion">
+                                        <div class="card-body p-0 w-auto h-auto ">
                                         <CollapseGroup group="neck" exercises={exercises} text="Cuello"/>
                                         <CollapseGroup group="shoulders" exercises={exercises} text="Hombro"/>
                                         <CollapseGroup group="back" exercises={exercises} text="Espalda"/>            
@@ -66,16 +66,16 @@ const ListExercises = (props) => {
 
 
                             <div id="accordionL">
-                                <div class="card">
-                                    <div class="card-header p-0" id="headingL">
+                                <div class="card w-auto h-auto">
+                                    <div class="card-header w-auto h-auto p-0" id="headingL">
                                         <h5 class="mb-0">
                                             <button class="p-3 btn btn-md btn-block text-dark font-weight-bold dropdown-toggle" data-toggle="collapse" data-target="#collapseL" aria-expanded="true" aria-controls="collapseL">
                                                 TREN INFERIOR
                                             </button>
                                         </h5>
                                     </div>
-                                    <div id="collapseL" class="collapse " aria-labelledby="headingL" data-parent="#accordionL">
-                                        <div class="card-body p-0  ">
+                                    <div id="collapseL" class="collapse w-auto h-auto" aria-labelledby="headingL" data-parent="#accordionL">
+                                        <div class="card-body p-0 w-auto h-auto ">
                                         <CollapseGroup group="gluteus" exercises={exercises} text="Glueteos"/>
                                         <CollapseGroup group="legs" exercises={exercises} text="Piernas"/>
  
@@ -85,16 +85,16 @@ const ListExercises = (props) => {
                             </div>
 
                             <div id="accordionC">
-                                <div class="card">
-                                    <div class="card-header p-0" id="headingC">
+                                <div class="card w-auto h-auto">
+                                    <div class="card-header p-0 w-auto h-auto" id="headingC">
                                         <h5 class="mb-0">
                                             <button class="p-3 btn btn-md btn-block text-dark font-weight-bold dropdown-toggle" data-toggle="collapse" data-target="#collapseC" aria-expanded="true" aria-controls="collapseC">
                                                 CARDIO
                                             </button>
                                         </h5>
                                     </div>
-                                    <div id="collapseC" class="collapse " aria-labelledby="headingC" data-parent="#accordionC">
-                                        <div class="card-body p-0  ">
+                                    <div id="collapseC" class="collapse w-auto h-auto " aria-labelledby="headingC" data-parent="#accordionC">
+                                        <div class="card-body p-0 w-auto h-auto  ">
                                             {exercises.map((exercise,index) => {if(exercise.group=='cardio'){
                                               return <Exercise key={exercise._id} exercise={exercise} index={index} dragid={exercise._id}/>}
                                         })}

@@ -1,4 +1,131 @@
+.superWrap{
+    min-width: 98vw;
+    min-height: 76vh;
+    margin: 0px auto;
+    
+
+    display: grid;
+    grid-template-columns: 15% 84%;
+    grid-template-rows: 10% 90%;
+
+    column-gap: 10px;
+
+    overflow-y: scroll;
+
+
+}
+.colapsable{
+
+    margin: 0px auto;
+    
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    
+}
+.fijo{
+    max-height: 70vh;
+    overflow-y: scroll;
+}
 .calendar{
+
+    min-height: 70vh;
+    grid-column: 2/3;
+    grid-row: 2/3;
     display: flex;
 
+}
+.weekpicker{
+    
+    margin: 0px auto;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: block;
+    
+}
+
+.buttonContainer{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: block;
+}
+
+.weekpicker .SingleDatePicker{
+    border:3px solid #17A2B8;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #a7a7a7;
+    
+    
+}
+.weekpicker .SingleDatePickerInput{
+
+    justify-content: center ;
+    align-items: center ;
+    align-content: center ;
+}
+#single_date_picker{
+    cursor: pointer;
+}
+
+.calendar .sc-AxhUy{
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+    background-color: #17A2B8;
+}
+
+
+.calendar .sc-AxhCb{
+    margin: 4px;
+    border:3px solid #17A2B8;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #cccccc;
+}
+.colapsable{
+    display: flex;
+}
+.colapsable .sc-fzozJi{
+    text-align: center;
+    text-transform: capitalize;
+    font-family: sans-serif;
+    color: white;
+    background-color: #17A2B8;
+    
+}
+.colapsable .sc-AxmLO{
+    border:3px solid #17A2B8;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #a7a7a7;
+}
+/*.card{
+    width: 70%;
+    height: auto;
+
+}*/
+.card h5:hover{
+    background-color: #17A2B8;
+}
+.card h5 button:hover{
+    color: white;
+}
+.text-dark:hover{
+    color: white !important;
+}
+
+.card-body div{
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    
+}
+.card-body .data{
+    font-family: sans-serif;
+    text-transform: capitalize;
+    text-align: center;
+    background-color: rgba(23, 162, 184, .1);
+}
+.card-body .img{
+    height: 15vh;
+    width: 76%;
+    margin: 6px;
+    box-shadow: 0px 0px 10px #a7a7a7;
 }

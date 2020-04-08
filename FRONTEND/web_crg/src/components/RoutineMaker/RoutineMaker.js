@@ -234,11 +234,11 @@ export default class RoutineMaker extends Component {
             <DragDropContext
                 onDragEnd={this.onDragEnd}
             >   
-                <div>
-                    <div key="weekpicker">
+                <div className="superWrap mt-2">
+                    <div className="weekpicker" key="weekpicker">
                         <WeekPicker setdate={this.setDate}/>
                     </div>
-                    <div key="listado_ejercicios">
+                    <div className="colapsable fijo" key="listado_ejercicios">
                         {this.state.exercises
                         ?
                         <ListExercises key={this.state.columns['set'].id} column={this.state.columns['set']} exercises={this.state.exercises}/>
@@ -254,10 +254,13 @@ export default class RoutineMaker extends Component {
                             return <Column oncalendar={this.state.oncalendar} key={column.id} column={column} exercises={exercises} changereps={this.changeReps} changesets={this.changeSets}/>
                         })}
                     </div>
-                    <div>
-                        <button onClick ={this.submitRoutine}>
-                            Crear Rutina
-                        </button>
+                    <div className="buttonContainer mt-2">
+                        <input
+                            type="submit"
+                            className="btn btn-info d-block float-right mr-2"
+                            onClick={this.submitRoutine}
+                            value="Crear Rutina"
+                        />
                     </div>
                 </div>
                
