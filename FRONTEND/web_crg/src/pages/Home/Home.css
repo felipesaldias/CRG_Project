@@ -1,0 +1,48 @@
+.homeContainer{
+   width: 95vw;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+}
+
+.tituloHome > h3{
+  
+    font-family: sans-serif;
+    text-shadow: 1px 1px 1px black;
+    
+    text-align: center;
+  
+}
+
+.form-wrap{
+    display: flex;
+    justify-content: center;
+}
+.form-group{
+    width: 43vw;
+}
+.calendarWrap{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.day{
+    text-align: center;
+    width:calc(75vw/7);
+}
+
+.labelDay{
+    font-family: sans-serif;
+    font-weight: bold;
+    color: black;
+    text-decoration: underline;
+}
+
+.inputRut{
+    cursor: pointer !important;
+}
+
+.wrapCal{
+    min-height: 26vh;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getRoutines } from '../../utils/api';
 import moment from "moment";
+import './Home.css'
 import Calendar from '../../components/Calendar/Calendar'
 
 
@@ -54,22 +55,45 @@ const Home = (props) =>  {
     }
 
     return(
-        <div>
-            <form>
-                <input 
-                onChange={handleState}
-                name= "rut" 
-                placeholder="Ingrese su Rut sin puntos ni digito verificador ej: 18470642"
-                type = 'text'
-                >
-                </input>
-                <button onClick={submit}>Enviar</button>
-            </form>
-            page destinada a las consultas de rutina para los asistentes del gimnasio
-            {loaded?  
-                <Calendar routine={filtered[0]} ></Calendar>
-              
-            :null}   
+        <div >
+            <div className="homeContainer shadow bg-light mx-auto my-5 p-0">
+                <div className="row">
+                    <div className="form-wrap col col-12 p-0 py-4">
+                        <form className="form-inline">
+                            
+                            <div className="form-group">
+                                
+                                <input 
+                                    type="text"
+                                    name="rut"
+                                    className="form-control inputRut col-9"
+                                    onChange={handleState}
+                                    placeholder="Ingrese Rut sin puntos ni digito verificador ej: 18470642"
+                                    
+                                />
+                                <input 
+                                    className="col-2 btn btn-info d-block ml-4" 
+                                    onClick={submit} 
+                                    value="Enviar"
+                                />
+                                
+                            </div>
+                        </form>
+                    </div>
+                    
+                    {loaded?  
+                        <div className="row wrapCal mx-auto mb-4">
+                            <div className="calendarWrap col col-12">
+                                <Calendar routine={filtered[0]} ></Calendar>
+                            </div>
+                        </div>
+                    :null} 
+                    <div className="tituloHome col col-12 p-3 mb-4">
+                        <h3 className="text-center text-shadow">Page destinada a las consultas de rutina para los asistentes del gimnasio</h3>
+                    </div>
+                    
+                </div>
+            </div>  
         </div>
     );
 }

@@ -1,3 +1,6 @@
-.img{
-    
+.imgOnHome{
+    height: 12vh;
+    width: 67%;
+    margin: 6px;
+    box-shadow: 0px 0px 10px #a7a7a7;
 }
