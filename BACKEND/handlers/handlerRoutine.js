@@ -39,12 +39,24 @@ module.exports = class HandlerRoutine{
     index(req,res){
         
         async function run(id){
-            
+
+                let us=""
+                await User.findOne({rut: req.params.id }, function (err, user){
+                    if (err){
+                        res.status(404).send({
+                            msg: "el usuario no exciste"
+                        })
+                        return
+                    }
+                    console.log(user)
+                    us=user._id
+
+
+                })
+                console.log(us)
                 let count;
                 let arr = [];
-
-            
-                if (!(count = await Routine.find({owner: id}))) {
+                if (!(count = await Routine.find({owner: us}))) {
                   return;
                 }
                 var cantidades = {
@@ -70,7 +82,7 @@ module.exports = class HandlerRoutine{
                     }
                 }
                 //console.log(arr)
-                Routine.find({owner: id}).populate({path: arr.join(''),model: 'exercise'}).exec((err,routines)=>{
+                Routine.find({owner: us}).populate({path: arr.join(''),model: 'exercise'}).exec((err,routines)=>{
                     //console.log(JSON.stringify(routines))
                     res.status(200).send(routines)
                 })
