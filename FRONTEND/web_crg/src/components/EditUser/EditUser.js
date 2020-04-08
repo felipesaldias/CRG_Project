@@ -1,11 +1,11 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import './EditUser.css';
 import PanelContext from '../../context/panel/panelContext';
 //import axios from 'axios';
 import { updateUser} from '../../utils/api';
 
 
- const EditUser = () => {
+ const EditUser = (props) => {
     const panelContext = useContext(PanelContext)
     const {focususer} = panelContext;
     var initialState= focususer?{name: focususer.name,
@@ -25,6 +25,24 @@ import { updateUser} from '../../utils/api';
     const [user, handleUser] = useState(initialState);
 
     const {name , rut, pass, email, phone, type} = user
+
+    const checkFocus=()=>{
+        if(!focususer){
+            alert("Debe seleccionar un usuario sobre el cual trabajar, será redirigido")
+            props.history.push(
+                {
+                  pathname: '/crg/panel/user',
+                  search: '?from=loadpdf',
+                  //state: { detail: response.data }
+                })
+                return
+        }
+        //return this.state.oncalendar[uuid].exercise
+    }
+    useEffect(() => {
+        checkFocus()
+    }, [])
+
     const submit = e =>{
       e.preventDefault(); 
       console.log(user);
