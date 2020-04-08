@@ -1,0 +1,18 @@
+.top-div{
+	background: #F1F2F3 ;
+}
+
+.bottom-div{
+	background: rgb(247, 245, 115);
+	height: 40px;
+	width: 80%;
+	position:relative;
+   	left: 10%;
+	right: 20%;
+	
+	
+
+}
+
+
+
