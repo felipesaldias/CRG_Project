@@ -31,10 +31,10 @@
     <img src="images/logo_large.png" alt="Logo" width="320" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Build routines in an easy way</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    An app for build any routine for any topic!
     <br />
     <a href="https://github.com/felipesaldias/CRG_Project"><strong>Explore the docs »</strong></a>
     <br />
