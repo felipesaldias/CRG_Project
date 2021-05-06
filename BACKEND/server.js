@@ -39,7 +39,7 @@ function main () {
   let handlerUser = new HandlerUser();
   let handlerExercise = new HandlerExercise();
   let handlerRoutine = new HandlerRoutine();
-  const port = config.port || 8000;
+  const port = config.port || 8001;
 
   app.use(bodyParser.urlencoded({ // Middleware
     extended: true
