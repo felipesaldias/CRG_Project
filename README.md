@@ -28,7 +28,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/felipesaldias/CRG_Project">
-    <img src="images/logo_small.png" alt="Logo" width="320" height="80">
+    <img src="images/logo_large.png" alt="Logo" width="320" height="80">
   </a>
 
   <h3 align="center">Best-README-Template</h3>
@@ -174,7 +174,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - felipesaldias@gmail.com
+Felipe Saldias Teillier - [@felipesaldiast](https://twitter.com/felipesaldiast) - felipesaldias@gmail.com
 
 Project Link: [https://github.com/felipesaldias/CRG_Project](https://github.com/felipesaldias/CRG_Project)
 
