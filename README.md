@@ -47,7 +47,7 @@
   </p>
 </p>
 
-
+<h2>[TODO activities](https://github.com/felipesaldias/CRG_Project/todo.md) </h2>
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
