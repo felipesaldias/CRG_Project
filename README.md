@@ -47,7 +47,7 @@
   </p>
 </p>
 
-<h2>[TODO-list](https://github.com/felipesaldias/CRG_Project/blob/DESAROLLO/todo.md)</h2>
+[TODO-list](https://github.com/felipesaldias/CRG_Project/blob/DESAROLLO/todo.md)
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
