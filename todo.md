@@ -11,6 +11,7 @@ Routine Generator
 - [ ] Parametrizar las categorias  
 - [ ] Implementar CI/CD
 - [ ] Mockear todo el backend? o hacerlo una app funcional????????
+- [ ] Evaluar la posibilidad de hacerlo un servicio????????
 
 <!--### Completed Column ✓
 - [x] Completed task title -->
