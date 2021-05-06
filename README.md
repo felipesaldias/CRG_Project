@@ -36,14 +36,14 @@
   <p align="center">
     An awesome README template to jumpstart your projects!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/felipesaldias/CRG_Project"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/felipesaldias/CRG_Project">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/felipesaldias/CRG_Project/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/felipesaldias/CRG_Project/issues">Request Feature</a>
   </p>
 </p>
 
@@ -69,7 +69,7 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
+    <!--<li><a href="#license">License</a></li>-->
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -97,8 +97,9 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+* [React](https://es.reactjs.org/)
+* [Node](https://nodejs.org/)
+* [MongoDB](https://www.mongodb.com/)
 
 
 
@@ -121,7 +122,7 @@ This is an example of how to list things you need to use the software and how to
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/felipesaldias/CRG_Project
    ```
 3. Install NPM packages
    ```sh
@@ -146,7 +147,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/felipesaldias/CRG_Project/issues) for a list of proposed features (and known issues).
 
 
 
@@ -163,19 +164,19 @@ Contributions are what make the open source community such an amazing place to b
 
 
 
-<!-- LICENSE -->
+<!-- LICENSE 
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
+-->
 
 
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Your Name - [@your_twitter](https://twitter.com/your_username) - felipesaldias@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/felipesaldias/CRG_Project](https://github.com/felipesaldias/CRG_Project)
 
 
 
@@ -199,16 +200,16 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributorsfelipesaldias/CRG_Project.svg?style=for-the-badge
+[contributors-url]: https://github.com/felipesaldias/CRG_Project/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/felipesaldias/CRG_Project.svg?style=for-the-badge
+[forks-url]: https://github.com/felipesaldias/CRG_Project/network/members
+[stars-shield]: https://img.shields.io/github/stars/felipesaldias/CRG_Project.svg?style=for-the-badge
+[stars-url]: https://github.com/felipesaldias/CRG_Project/stargazers
+[issues-shield]: https://img.shields.io/github/issues/felipesaldias/CRG_Project.svg?style=for-the-badge
+[issues-url]: https://github.com/felipesaldias/CRG_Project/issues
+[license-shield]: https://img.shields.io/github/license/felipesaldias/CRG_Project.svg?style=for-the-badge
+[license-url]: https://github.com/felipesaldias/CRG_Project/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://www.linkedin.com/in/felipe-saldias/
 [product-screenshot]: images/screenshot.png
