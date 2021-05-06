@@ -200,7 +200,7 @@ Project Link: [https://github.com/felipesaldias/CRG_Project](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributorsfelipesaldias/CRG_Project.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/felipesaldias/CRG_Project.svg?style=for-the-badge
 [contributors-url]: https://github.com/felipesaldias/CRG_Project/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/felipesaldias/CRG_Project.svg?style=for-the-badge
 [forks-url]: https://github.com/felipesaldias/CRG_Project/network/members
